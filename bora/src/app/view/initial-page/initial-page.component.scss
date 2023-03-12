@@ -1,0 +1,33 @@
+.logo {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  &__img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+#container {
+  padding-bottom: 50vh;
+  overflow: hidden;
+}
+#content {
+  width: 1000px;
+  margin: 0 auto;
+}
+header {
+  height: 52px;
+}
+header div {
+  width: 1000px;
+  background: red;
+  height: 52px;
+  margin: 0 auto;
+}
