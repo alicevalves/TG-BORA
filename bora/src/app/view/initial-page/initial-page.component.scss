@@ -1,33 +1,26 @@
-.logo {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  &__img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
+footer{
+  margin-bottom: 40px;
 }
 
-#wrapper {
-  min-height: 100%;
-  position: relative;
-}
-#container {
-  padding-bottom: 50vh;
-  overflow: hidden;
-}
-#content {
-  width: 1000px;
-  margin: 0 auto;
-}
-header {
-  height: 52px;
-}
-header div {
-  width: 1000px;
-  background: red;
-  height: 52px;
-  margin: 0 auto;
+.btn {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  display: flex;
+  flex-direction: column;
+  &__entrar {
+    font-size: 1em;
+    color: white;
+    background-color: #a19f9f;
+    height: 35px;
+    border-radius: 5px;
+  }
+  &__cadastro {
+    font-size: 1em;
+    margin-top: 25px;
+    color: white;
+    background-color: #a19f9f;
+    height: 35px;
+    border-radius: 5px;
+  }
 }
