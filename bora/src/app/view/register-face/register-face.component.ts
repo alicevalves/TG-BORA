@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-face',
@@ -7,8 +8,12 @@ import { Component } from '@angular/core';
 })
 export class RegisterFaceComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToFeed(){
+    this.router.navigate(['/feed'])
   }
 }

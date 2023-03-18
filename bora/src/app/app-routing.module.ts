@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditProfileComponent } from './view/edit-profile/edit-profile.component';
+import { FeedComponent } from './view/feed/feed.component';
 import { InitialPageComponent } from './view/initial-page/initial-page.component';
 import { LoginPageComponent } from './view/login-page/login-page.component';
 import { RegisterEventComponent } from './view/register-event/register-event.component';
@@ -32,6 +33,9 @@ const routes: Routes = [{
 },
 {
   path: 'face', component: RegisterFaceComponent ,
+},
+{
+  path: 'feed', component: FeedComponent ,
 },
 ];
 

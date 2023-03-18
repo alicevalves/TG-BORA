@@ -7,6 +7,7 @@ import { RegisterPictureComponent } from './register-picture/register-picture.co
 import { RegisterEventComponent } from './register-event/register-event.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RegisterFaceComponent } from './register-face/register-face.component';
+import { FeedComponent } from './feed/feed.component';
 
 
 
@@ -18,7 +19,8 @@ import { RegisterFaceComponent } from './register-face/register-face.component';
     RegisterPictureComponent,
     RegisterEventComponent,
     EditProfileComponent,
-    RegisterFaceComponent
+    RegisterFaceComponent,
+    FeedComponent
   ],
   imports: [
     CommonModule
