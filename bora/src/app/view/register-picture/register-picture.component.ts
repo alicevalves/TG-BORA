@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-picture.component.scss']
 })
 export class RegisterPictureComponent {
+  constructor() { }
 
+  ngOnInit():void {
+  }
 }

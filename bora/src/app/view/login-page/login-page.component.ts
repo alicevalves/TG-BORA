@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
+  constructor() { }
 
+  ngOnInit():void {
+  }
 }

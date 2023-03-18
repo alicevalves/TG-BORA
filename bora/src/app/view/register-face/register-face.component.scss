@@ -1,0 +1,29 @@
+.title {
+    width: 70%;
+    margin: 0 15% 0 15%;
+    text-align: center;
+    font-size: 2em;
+    margin: 32px 15% 0 15%;
+    color: white;
+  }
+  
+  footer {
+    height: 74px;
+  }
+  
+  .btn {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    justify-content: end;  
+    &__entrar {
+      width: 100%;
+      font-size: 1em;
+      color: white;
+      background-color: #a19f9f;
+      height: 42px;
+      border-radius: 5px;
+    }
+  }
+  
