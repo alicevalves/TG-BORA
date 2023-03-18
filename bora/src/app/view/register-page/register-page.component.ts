@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent {
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {}
+
+  goToRegisterPhoto() {
+    this.router.navigate(['/picture']);
+  }
 
 }
