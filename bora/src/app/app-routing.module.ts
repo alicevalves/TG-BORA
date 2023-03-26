@@ -7,6 +7,7 @@ import { LoginPageComponent } from './view/login-page/login-page.component';
 import { RegisterEventComponent } from './view/register-event/register-event.component';
 import { RegisterPageComponent } from './view/register-page/register-page.component';
 import { RegisterPictureComponent } from './view/register-picture/register-picture.component';
+import { TalksComponent } from './view/talks/talks.component';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [{ 
@@ -32,6 +33,9 @@ const routes: Routes = [{
 },
 {
   path: 'feed', component: FeedComponent ,
+},
+{
+  path: 'talks', component: TalksComponent ,
 },
 ];
 
