@@ -23,8 +23,10 @@
     }
     .nome {
       display: flex;
-      margin: 15px 0 10px 0px;
+      margin: 15px 0 15px 0px;
       span {
+        font-size: 1em;
+        font-weight: bold;
         justify-content: center;
         display: flex;
         flex-direction: column;
@@ -50,13 +52,30 @@
     }
 
     .titulo {
+      span {
+        font-weight: bold;
+      }
       margin-left: 8px;
       margin-bottom: 16px;
     }
 
     .descricao {
       margin-left: 8px;
-      margin-bottom: 16px;
+    }
+    .btn-bora {
+      height: 60px;
+      display: flex;
+      flex-direction: row-reverse;
+      .button {
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 1em;
+        color: white;
+        background-color: #a19f9f;
+        width: 100px;
+        border-radius: 30px;
+      }
     }
   }
 
