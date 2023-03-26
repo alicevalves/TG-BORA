@@ -8,6 +8,7 @@ import { RegisterEventComponent } from './register-event/register-event.componen
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RegisterFaceComponent } from './register-face/register-face.component';
 import { FeedComponent } from './feed/feed.component';
+import { TalksComponent } from './talks/talks.component';
 
 
 
@@ -20,7 +21,8 @@ import { FeedComponent } from './feed/feed.component';
     RegisterEventComponent,
     EditProfileComponent,
     RegisterFaceComponent,
-    FeedComponent
+    FeedComponent,
+    TalksComponent
   ],
   imports: [
     CommonModule
