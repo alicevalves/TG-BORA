@@ -7,13 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent {
+  teste:boolean = false
   constructor(private router: Router) {}
+  ngOnInit(): void {
+  
+  }
 
-  ngOnInit(): void {}
-
-
-
-
+  openModal(){
+    this.teste = true
+  }
+  closeModal(){
+    this.teste=false
+  }
   goToRegisterEvent(){
     this.router.navigate(['/event'])
   }

@@ -4,7 +4,7 @@
             <img src="../../../assets/menu_.svg" alt="">
         </div>
     <div class="evento">
-        <div class="nome"> <img class="img" src="../../../assets/Bora.svg" alt=""> <span>Nome</span> </div>
+        <div class="nome"> <img (click)="openModal()" class="img" src="../../../assets/Bora.svg" alt=""> <span>Nome</span> </div>
         <div class="data"> <img src="../../../assets/calendar_.svg" alt=""> <span>01/01/2023</span></div>
         <div class="local"> <img src="../../../assets/globe_.svg" alt=""> <span>Indaiatuba-SP</span></div>
         <div class="titulo"><span>Reunião</span></div>
@@ -15,3 +15,19 @@
         <img (click)="goToRegisterEvent()" src="../../../assets/add circle_.svg" alt="">
     </footer>
 </section>
+
+<div class="modal" *ngIf="false">
+<div class="topo">
+    <img (click)="closeModal()" src="../../../assets/arrow left_.svg" alt="">
+</div>
+
+<div><h1 class="tit">Perfil</h1></div>
+    <div class="content">
+        <img class="foto" src="" alt="">
+        <h1>Laiane</h1>
+        <div class="links">
+            <img src="../../../assets/linkedin_.svg" alt="">
+            <img src="../../../assets/envelope lines thin_.svg" alt="">
+        </div>
+    </div>
+  </div>
