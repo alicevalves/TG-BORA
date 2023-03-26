@@ -9,6 +9,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RegisterFaceComponent } from './register-face/register-face.component';
 import { FeedComponent } from './feed/feed.component';
 import { TalksComponent } from './talks/talks.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -22,7 +23,8 @@ import { TalksComponent } from './talks/talks.component';
     EditProfileComponent,
     RegisterFaceComponent,
     FeedComponent,
-    TalksComponent
+    TalksComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule

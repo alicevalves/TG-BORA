@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChatComponent } from './view/chat/chat.component';
 import { EditProfileComponent } from './view/edit-profile/edit-profile.component';
 import { FeedComponent } from './view/feed/feed.component';
 import { InitialPageComponent } from './view/initial-page/initial-page.component';
@@ -36,6 +37,9 @@ const routes: Routes = [{
 },
 {
   path: 'talks', component: TalksComponent ,
+},
+{
+  path: 'chat', component: ChatComponent ,
 },
 ];
 
