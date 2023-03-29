@@ -1,15 +1,22 @@
 .feed {
   width: 100%;
   display: grid;
+  margin-bottom: 135px;
+
   .header {
     color: #f5f5f5;
     width: 90%;
     display: flex;
     justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #02053c;
+    position: fixed;
+    z-index: 1;
   }
   .evento {
+    position: relative;
+    top: 50px;
     height: auto;
     width: 80%;
     border-radius: 10px;
@@ -19,7 +26,7 @@
     margin-left: auto;
     margin-right: auto;
     span {
-      margin-left: 20px;
+      margin-left: 18px;
     }
     .nome {
       display: flex;
@@ -47,7 +54,7 @@
     }
 
     .local {
-      margin-left: 24px;
+      margin-left: 23px;
       margin-bottom: 16px;
     }
 
@@ -61,6 +68,11 @@
 
     .descricao {
       margin-left: 8px;
+      width: 95%;
+      text-align: justify;
+      span{
+        margin-left: opx;
+      }
     }
     .btn-bora {
       height: 60px;
@@ -85,7 +97,10 @@
     align-items: center;
     width: 95%;
     margin-left: auto;
+    height: 66px;
+    background: #02053c;
     margin-right: auto;
+    position: fixed;
   }
 }
 

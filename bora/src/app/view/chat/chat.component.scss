@@ -39,6 +39,10 @@
   }
 
   .input{
+    bottom: 0;
+    position: fixed;
+    width: 90%;
+    text-align: center;
     input{
         background-color: #fff;
     }

@@ -12,7 +12,7 @@ export class RegisterPictureComponent {
   ngOnInit():void {
   }
 
-  goToRegisterFace(){
-    this.router.navigate(['/face'])
+  goToFeed(){
+    this.router.navigate(['/feed'])
   }
 }

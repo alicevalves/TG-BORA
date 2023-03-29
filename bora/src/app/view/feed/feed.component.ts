@@ -7,10 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent {
-  teste:boolean = false
+  teste:boolean = false;
+
+
   constructor(private router: Router) {}
   ngOnInit(): void {
-  
+
   }
 
   openModal(){
