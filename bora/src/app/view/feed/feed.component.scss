@@ -106,7 +106,7 @@
 }
 
 .modal {
-  background: #02053c;
+  background: #232558;
   border-radius: 8px;
   box-shadow: 0 2px 8px #333;
   min-width: 300px;
@@ -135,11 +135,17 @@
     text-align: center;
   }
 
+  .topo{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
   .foto {
     width: 80px;
     height: 80px;
     background-color: red;
     border-radius: 100px;
+    margin-left: 10px;
   }
 
   .tit {
