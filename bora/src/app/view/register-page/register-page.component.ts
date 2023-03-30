@@ -11,6 +11,10 @@ export class RegisterPageComponent {
 
   ngOnInit(): void {}
 
+  backBtn(){
+    this.router.navigate(['/initial'])
+  }
+
   goToRegisterPhoto() {
     this.router.navigate(['/picture']);
   }

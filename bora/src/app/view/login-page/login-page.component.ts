@@ -12,6 +12,10 @@ export class LoginPageComponent {
   ngOnInit():void {
   }
 
+  backBtn(){
+    this.router.navigate(['/initial'])
+  }
+
   goToFeed(){
     this.router.navigate(['/feed'])
   }

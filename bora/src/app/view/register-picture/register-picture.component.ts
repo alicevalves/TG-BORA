@@ -12,6 +12,10 @@ export class RegisterPictureComponent {
   ngOnInit():void {
   }
 
+  backBtn(){
+    this.router.navigate(['/register'])
+  }
+
   goToFeed(){
     this.router.navigate(['/feed'])
   }
