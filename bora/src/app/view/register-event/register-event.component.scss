@@ -1,8 +1,10 @@
-.logo{
-    &__img{
-        position: absolute;
-        bottom: 0%;
-    }
+.logo {
+  &__img {
+    position: absolute;
+    bottom: 0%;
+    width: 60%;
+    top: 0px;
+  }
 }
 
 .header {
@@ -21,10 +23,9 @@
 
 .title {
     width: 70%;
-    margin: 0 15% 0 15%;
     text-align: center;
     font-size: 2em;
-    margin: -70px 15% 0 15%;
+    margin: -50px 15% -15px 15%;
     color: white;
   }
   
