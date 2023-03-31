@@ -69,13 +69,22 @@ footer {
   margin-left: 15%;
   margin-right: 15%;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   &__entrar {
-    width: 50%;
+    margin-top: 15px;
+    width: 100%;
     font-size: 1em;
     color: white;
     background-color: #a19f9f;
     height: 35px;
     border-radius: 5px;
   }
-}
+} 
+
+.forget{
+  color: #fff;
+  font-size: 0.75em;
+  text-align: center;
+  margin-left: 74px;
+  margin-top: 4px;
+  }
