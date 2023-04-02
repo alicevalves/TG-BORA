@@ -1,15 +1,14 @@
 {
-    "name": "api-bora",
     "version": 2,
     "public": true,
     "build": {
-        "src": "./index.js",
+        "src": "back-end/index.js",
         "use": "@vercel/node"
     },
     "routes": [
         {
             "src": "(.*)",
-            "dest": "./index.js"
+            "dest": "back-end/index.js"
         }
     ]
 }
