@@ -1,12 +1,13 @@
 {
     "name": "TG-BORA",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "src/index.js",
     "repository": "https://github.com/alicevalves/TG-BORA.git",
     "author": "alicevalves <73171191+alicevalves@users.noreply.github.com>",
     "license": "MIT",
     "scripts": {
-      "start": "nodemon back-end/index.js"
+      "start": "nodemon src/index.js",
+      "vercel-build": "yarn"
     },
     "devDependencies": {
       "nodemon": "^2.0.21"
