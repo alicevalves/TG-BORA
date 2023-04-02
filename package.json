@@ -6,8 +6,7 @@
     "author": "alicevalves <73171191+alicevalves@users.noreply.github.com>",
     "license": "MIT",
     "scripts": {
-      "start": "nodemon src/index.js",
-      "vercel-build": "yarn"
+      "start": "nodemon src/index.js"
     },
     "devDependencies": {
       "nodemon": "^2.0.21"
