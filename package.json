@@ -1,7 +1,7 @@
 {
     "name": "TG-BORA",
     "version": "1.0.0",
-    "main": "src/index.js",
+    "main": "index.js",
     "repository": "https://github.com/alicevalves/TG-BORA.git",
     "author": "alicevalves <73171191+alicevalves@users.noreply.github.com>",
     "license": "MIT",
