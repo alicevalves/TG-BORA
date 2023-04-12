@@ -24,4 +24,8 @@ export class FeedComponent {
   goToRegisterEvent(){
     this.router.navigate(['/event'])
   }
+
+  goToChat(){
+    this.router.navigate(['/chat'])
+  }
 }

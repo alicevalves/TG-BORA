@@ -12,12 +12,12 @@
   }
 
   .messages {
-    margin-top: 32px;
+    margin-top: 28px;
     background: #232558;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    height: 80vh;
+    height: 85vh;
     border-radius: 10px;
   }
 
@@ -27,6 +27,7 @@
     margin-top: 16px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 18px;
     img {
       width: 30px;
       height: 30px;
@@ -34,17 +35,66 @@
       background-color: #f5f5f5;
     }
     h1 {
+      color: #f5f5f5;
       margin: 0px 0px 0px 16px;
     }
   }
 
-  .input{
-    bottom: 0;
+  .balloon {
+    height: 66vh;
+    overflow: scroll;
+  }
+
+  .sent {
+    display: flex;
+    justify-content: end;
+    text-align: end;
+    margin-right: 12px;
+    p {
+      display: grid;
+      width: 60%;
+      background: #d7dae1;
+      border-radius: 10px;
+      padding: 5px;
+      span{
+        font-size: 0.5em;
+        margin-right: 2.5px;
+      }
+    }
+  }
+
+  .received {
+    display: flex;
+    margin-left: 12px;
+    p {
+      width: 60%;
+      background: rgb(146 188 168);
+      border-radius: 10px;
+      padding: 5px;
+      display: grid;
+      span{
+        font-size: 0.5em;
+        margin-left: 2.5px;
+      }
+    }
+  }
+
+  .input {
+    display: flex;
+    bottom: 40px;
     position: fixed;
-    width: 90%;
+    width: 80%;
+    align-items: end;
     text-align: center;
-    input{
-        background-color: #fff;
+    input {
+      background-color: #fff;
+      width: 72%;
+      height: 25px;
+      border-radius: 10px;
+      margin: 24px 8% 0 5%;
+    }
+    img {
+      margin-bottom: 3px;
     }
   }
 }
