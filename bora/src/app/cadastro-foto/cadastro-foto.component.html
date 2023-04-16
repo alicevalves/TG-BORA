@@ -12,12 +12,12 @@
   </section>
   
   <div class="input">
-    <form action="" class="form">
-      <input type="file" name="file" required />
+    <form action="" class="form" [formGroup]="form">
+      <input formControlName="fotoPerfil" type="file" name="file" required />
     </form>
   </div>
   
   <footer class="btn">
-    <button (click)="goToFeed()" class="btn__continuar">Concluir</button>
+    <button (click)="postFoto()" class="btn__continuar">Concluir</button>
   </footer>
   
