@@ -17,11 +17,10 @@ export class CadastroComponent {
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    link: new FormControl('', Validators.required),
+    linkedin: new FormControl('', Validators.required),
     senha: new FormControl('', Validators.required),
   });
 
-  usuario: any = {};
   submitted = false
 
   constructor(

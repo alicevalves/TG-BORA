@@ -9,13 +9,15 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
+import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewComponent,
     CadastroComponent,
-    PaginaInicialComponent
+    PaginaInicialComponent,
+    CadastroEventoComponent
   ],
   imports: [
     BrowserModule,

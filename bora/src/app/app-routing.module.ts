@@ -10,6 +10,7 @@ import { TalksComponent } from './view/talks/talks.component';
 import { ViewComponent } from './view/view.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
+import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
 
 const routes: Routes = [{ 
   path: '', component: ViewComponent ,
@@ -24,7 +25,7 @@ const routes: Routes = [{
   path: 'picture', component: RegisterPictureComponent ,
 },
 {
-  path: 'event', component: RegisterEventComponent ,
+  path: 'evento', component: CadastroEventoComponent ,
 },
 {
   path: 'profile', component: EditProfileComponent ,
