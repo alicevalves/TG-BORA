@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TalksComponent } from './talks.component';
+import { LoadInicialComponent } from './load-inicial.component';
 
-describe('TalksComponent', () => {
-  let component: TalksComponent;
-  let fixture: ComponentFixture<TalksComponent>;
+describe('LoadInicialComponent', () => {
+  let component: LoadInicialComponent;
+  let fixture: ComponentFixture<LoadInicialComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TalksComponent ]
+      declarations: [ LoadInicialComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TalksComponent);
+    fixture = TestBed.createComponent(LoadInicialComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

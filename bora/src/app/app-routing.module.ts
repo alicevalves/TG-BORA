@@ -1,40 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChatComponent } from './view/chat/chat.component';
-import { EditProfileComponent } from './view/edit-profile/edit-profile.component';
-import { FeedComponent } from './view/feed/feed.component';
-import { LoginPageComponent } from './view/login-page/login-page.component';
-import { RegisterEventComponent } from './view/register-event/register-event.component';
-import { RegisterPictureComponent } from './view/register-picture/register-picture.component';
-import { TalksComponent } from './view/talks/talks.component';
-import { ViewComponent } from './view/view.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
+import { ChatComponent } from './chat/chat.component';
+import { ConversasComponent } from './conversas/conversas.component';
+import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
+import { LoginComponent } from './login/login.component';
+import { FeedComponent } from './feed/feed.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { LoadInicialComponent } from './load-inicial/load-inicial.component';
 
 const routes: Routes = [{ 
-  path: '', component: ViewComponent ,
+  path: '', component: LoadInicialComponent ,
 },
 {
   path: 'inicial', component: PaginaInicialComponent ,
 },
 {
-  path: 'login', component: LoginPageComponent ,
+  path: 'login', component: LoginComponent ,
 },
 {
-  path: 'picture', component: RegisterPictureComponent ,
+  path: 'foto', component: CadastroFotoComponent ,
 },
 {
   path: 'evento', component: CadastroEventoComponent ,
 },
 {
-  path: 'profile', component: EditProfileComponent ,
+  path: 'perfil', component: EditarPerfilComponent ,
 },
 {
   path: 'feed', component: FeedComponent ,
 },
 {
-  path: 'talks', component: TalksComponent ,
+  path: 'conversas', component: ConversasComponent ,
 },
 {
   path: 'chat', component: ChatComponent ,

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegisterEventComponent } from './register-event.component';
+import { CadastroFotoComponent } from './cadastro-foto.component';
 
-describe('RegisterEventComponent', () => {
-  let component: RegisterEventComponent;
-  let fixture: ComponentFixture<RegisterEventComponent>;
+describe('CadastroFotoComponent', () => {
+  let component: CadastroFotoComponent;
+  let fixture: ComponentFixture<CadastroFotoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterEventComponent ]
+      declarations: [ CadastroFotoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RegisterEventComponent);
+    fixture = TestBed.createComponent(CadastroFotoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

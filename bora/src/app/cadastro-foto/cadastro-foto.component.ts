@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register-picture',
-  templateUrl: './register-picture.component.html',
-  styleUrls: ['./register-picture.component.scss']
+  selector: 'app-cadastro-foto',
+  templateUrl: './cadastro-foto.component.html',
+  styleUrls: ['./cadastro-foto.component.scss']
 })
-export class RegisterPictureComponent {
+export class CadastroFotoComponent {
   constructor(private router: Router) { }
 
   ngOnInit():void {

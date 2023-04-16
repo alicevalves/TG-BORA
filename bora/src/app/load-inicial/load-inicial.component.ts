@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-view',
-  templateUrl: './view.component.html',
-  styleUrls: ['./view.component.scss'],
+  selector: 'app-load-inicial',
+  templateUrl: './load-inicial.component.html',
+  styleUrls: ['./load-inicial.component.scss']
 })
-export class ViewComponent implements OnInit {
+export class LoadInicialComponent {
   constructor(private router: Router) {}
 
   ngOnInit(): void {

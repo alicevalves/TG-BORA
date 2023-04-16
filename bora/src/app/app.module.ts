@@ -4,20 +4,32 @@ import { WebcamModule } from 'ngx-webcam';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ViewComponent } from './view/view.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
+import { ChatComponent } from './chat/chat.component';
+import { ConversasComponent } from './conversas/conversas.component';
+import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
+import { LoginComponent } from './login/login.component';
+import { FeedComponent } from './feed/feed.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { LoadInicialComponent } from './load-inicial/load-inicial.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewComponent,
     CadastroComponent,
     PaginaInicialComponent,
-    CadastroEventoComponent
+    CadastroEventoComponent,
+    ChatComponent,
+    ConversasComponent,
+    CadastroFotoComponent,
+    LoginComponent,
+    FeedComponent,
+    EditarPerfilComponent,
+    LoadInicialComponent
   ],
   imports: [
     BrowserModule,
