@@ -9,7 +9,8 @@ import { FeedResponse } from './feed';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent {
-  teste:boolean = false;
+
+  mostrarPerfil:boolean = false;
   eventos: any
 
   constructor(private router: Router, private feedService: FeedService) {}
@@ -20,11 +21,11 @@ export class FeedComponent {
   }
 
   openModal(){
-    this.teste = true
+    this.mostrarPerfil = true
   }
 
   closeModal(){
-    this.teste = false
+    this.mostrarPerfil = false
   }
 
   goToRegisterEvent(){
