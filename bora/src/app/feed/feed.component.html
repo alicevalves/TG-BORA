@@ -15,7 +15,7 @@
     </div>
     <div class="data">
       <img src="../../../assets/calendar_.svg" alt="" />
-      <span> {{ evento.dataEvento }} </span>
+      <span> {{ evento.dataEvento | date : 'dd/MM/yyyy' }} </span>
     </div>
     <div class="local">
       <img src="../../../assets/globe_.svg" alt="" />

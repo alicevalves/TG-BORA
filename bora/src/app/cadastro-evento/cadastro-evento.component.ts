@@ -6,7 +6,7 @@ import { CadastroEventoService } from './cadastro-evento.service';
 @Component({
   selector: 'app-cadastro-evento',
   templateUrl: './cadastro-evento.component.html',
-  styleUrls: ['./cadastro-evento.component.scss']
+  styleUrls: ['./cadastro-evento.component.scss'],
 })
 export class CadastroEventoComponent {
   form = new FormGroup({
@@ -15,32 +15,38 @@ export class CadastroEventoComponent {
     localEvento: new FormControl('', Validators.required),
     dataEvento: new FormControl('', Validators.required),
   });
-  
-  submitted = false
 
-  constructor(private router:Router, private eventoService: CadastroEventoService) { }
+  submitted = false;
 
-  ngOnInit():void {
-  }
+  constructor(
+    private router: Router,
+    private eventoService: CadastroEventoService
+  ) {}
 
-  postUser(){
-    this.submitted = true
-    console.log(this.form.value)
+  ngOnInit(): void {}
+
+  postUser() {
+    this.submitted = true;
+    console.log(this.form.value);
     if (this.form.valid) {
-      console.log('submit')
+      console.log('submit');
       this.eventoService.postEventos(this.form.value).subscribe(
-        success => console.log("Sucesso"),
-        error => console.error(error),
+        (success) => alert('Evento cadastrado com sucesso!'),
+        (error) =>
+          alert('Erro ao cadastrar evento. Tente novamente mais tarde'),
         () => console.log('request completo')
-      )
+      );
+      setTimeout(() => {
+        this.router.navigate(['/feed']);        
+      }, 2000);
     }
-}
-
-  backBtn(){
-    this.router.navigate(['/feed'])
   }
 
-  goToFeed(){
-    this.router.navigate(['/feed'])
+  backBtn() {
+    this.router.navigate(['/feed']);
+  }
+
+  goToFeed() {
+    this.router.navigate(['/feed']);
   }
 }
