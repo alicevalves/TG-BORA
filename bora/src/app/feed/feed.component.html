@@ -1,54 +1,64 @@
 <section class="feed">
-    <div class="header">
-        <h1>Feed</h1>
-        <img src="../../../assets/menu_.svg" alt="">
+  <div class="header">
+    <h1>Feed</h1>
+    <img src="../../../assets/menu_.svg" alt="" />
+  </div>
+  <div class="evento" *ngFor="let evento of eventos">
+    <div class="nome">
+      <img
+        (click)="openModal()"
+        class="img"
+        src="../../../assets/2D61F2BA-8623-4081-8B70-A7A0951BE317_1_105_c.jpeg"
+        alt=""
+      />
+      <span> Laiane </span>
     </div>
-<div class="evento">
-    <div class="nome"> <img (click)="openModal()" class="img" src="../../../assets/2D61F2BA-8623-4081-8B70-A7A0951BE317_1_105_c.jpeg" alt=""> <span> Laiane </span> </div>
-    <div class="data"> <img src="../../../assets/calendar_.svg" alt=""> <span> 01/04/2023 </span></div>
-    <div class="local"> <img src="../../../assets/globe_.svg" alt=""> <span> Indaiatuba-SP</span></div>
-    <div class="titulo"><span> TedTalks </span></div>
-    <div class="descricao"><span>Evento voltado para desenvolvedores de sistemas para web. Em formato de conversa, esse evento promete te levar para alto nível de conhecimento
-    </span></div>
+    <div class="data">
+      <img src="../../../assets/calendar_.svg" alt="" />
+      <span> {{ evento.dataEvento }} </span>
+    </div>
+    <div class="local">
+      <img src="../../../assets/globe_.svg" alt="" />
+      <span> {{ evento.localEvento }} </span>
+    </div>
+    <div class="titulo">
+      <span> {{ evento.nomeEvento }} </span>
+    </div>
+    <div class="descricao">
+      <span> {{ evento.descricaoEvento }} </span>
+    </div>
     <div class="btn-bora"><button class="button">Bora?!</button></div>
-</div>
+  </div>
 
-<div class="evento">
-    <div class="nome"> <img (click)="openModal()" class="img" src="../../../assets/158839936_118618393853922_8781297424711075173_n.jpeg" alt=""> <span> Alice </span> </div>
-    <div class="data"> <img src="../../../assets/calendar_.svg" alt=""> <span> 31/04/2023 </span></div>
-    <div class="local"> <img src="../../../assets/globe_.svg" alt=""> <span> São Paulo-SP</span></div>
-    <div class="titulo"><span> CCXP Devs Angular </span></div>
-    <div class="descricao"><span>Evento voltado para desenvolvedores Angular com novidades, tendencias e grandes nomes
-    </span></div>
-    <div class="btn-bora"><button class="button">Bora?!</button></div>
-</div>
-
-<div class="evento">
-    <div class="nome"> <img (click)="openModal()" class="img" src="../../../assets/2D61F2BA-8623-4081-8B70-A7A0951BE317_1_105_c.jpeg" alt=""> <span> Laiane </span> </div>
-    <div class="data"> <img src="../../../assets/calendar_.svg" alt=""> <span> 01/04/2023 </span></div>
-    <div class="local"> <img src="../../../assets/globe_.svg" alt=""> <span> Indaiatuba-SP</span></div>
-    <div class="titulo"><span> TedTalks </span></div>
-    <div class="descricao"><span>Evento voltado para desenvolvedores de sistemas para web. Em formato de conversa, esse evento promete te levar para alto nível de conhecimento
-    </span></div>
-    <div class="btn-bora"><button class="button">Bora?!</button></div>
-</div>
-<footer>
-    <img (click)="goToRegisterEvent()" src="../../../assets/add circle_.svg" alt="">
-</footer>
+  <footer>
+    <img
+      (click)="goToRegisterEvent()"
+      src="../../../assets/add circle_.svg"
+      alt=""
+    />
+  </footer>
 </section>
 
 <div class="modal" *ngIf="false">
-<div class="topo">
-<img (click)="closeModal()" src="../../../assets/close circle_.svg" alt="">
-</div>
+  <div class="topo">
+    <img
+      (click)="closeModal()"
+      src="../../../assets/close circle_.svg"
+      alt=""
+    />
+  </div>
 
-<div><h1 class="tit">Perfil</h1></div>
-<div class="content">
-    <img class="foto" src="../../../assets/2D61F2BA-8623-4081-8B70-A7A0951BE317_1_105_c.jpeg" alt="">
+  <div><h1 class="tit">Perfil</h1></div>
+  <div class="content">
+    <img
+      class="foto"
+      src="../../../assets/2D61F2BA-8623-4081-8B70-A7A0951BE317_1_105_c.jpeg"
+      alt=""
+    />
     <h1>Laiane</h1>
     <div class="links">
-        <img src="../../../assets/linkedin_.svg" alt="">
-        <img src="../../../assets/envelope lines thin_.svg" alt="">
+      <img src="../../../assets/linkedin_.svg" alt="" />
+      <img src="../../../assets/envelope lines thin_.svg" alt="" />
     </div>
-</div>
+  </div>
 </div>
