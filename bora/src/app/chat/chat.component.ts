@@ -14,6 +14,6 @@ export class ChatComponent {
   }
 
   goToChats(){
-    this.router.navigate(['/talks'])
+    this.router.navigate(['/conversa'])
   }
 }

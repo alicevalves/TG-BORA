@@ -13,7 +13,7 @@ export class LoginComponent {
   }
 
   backBtn(){
-    this.router.navigate(['/initial'])
+    this.router.navigate(['/inicial'])
   }
 
   goToFeed(){

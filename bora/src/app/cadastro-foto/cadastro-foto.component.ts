@@ -13,7 +13,7 @@ export class CadastroFotoComponent {
   }
 
   backBtn(){
-    this.router.navigate(['/register'])
+    this.router.navigate(['/cadastro'])
   }
 
   goToFeed(){

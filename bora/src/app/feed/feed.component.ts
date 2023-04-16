@@ -22,7 +22,7 @@ export class FeedComponent {
     this.teste=false
   }
   goToRegisterEvent(){
-    this.router.navigate(['/event'])
+    this.router.navigate(['/evento'])
   }
 
   goToChat(){
