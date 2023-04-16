@@ -1,0 +1,39 @@
+<div id="wrapper">
+  <div id="container">
+    <div class="header">
+      <img (click)="backBtn()" src="../../../assets/arrow left_.svg" alt="" />
+    </div>
+    <header>
+      <img class="logo__img" src="../../../assets/Bora.png" />
+    </header>
+    <div id="content"></div>
+  </div>
+</div>
+
+<div>
+  <h1 class="title">Cadastrar</h1>
+</div>
+<div class="input">
+  <form action="" class="form" [formGroup]="form">
+    <label for="nome">Nome e Sobrenome</label>
+    <input formControlName="nome" type="text" name="nome" required />
+
+    <label for="email">E-mail</label>
+    <input formControlName="email" type="email" name="email" required/>
+
+    <label for="link">LinkedIn</label>
+    <input formControlName="link" type="text" name="link" required/>
+
+    <label for="pass">Senha</label>
+    <input formControlName="senha" type="password" name="pass" required/>
+
+    <footer class="btn">
+      <button
+        class="btn__entrar"
+        (click)="postUser()"
+        type="submit"
+        value="CONTINUAR"
+      >CONTINUAR</button>
+    </footer>
+  </form>
+</div>

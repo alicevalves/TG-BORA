@@ -11,7 +11,7 @@ export class ViewComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.router.navigate(['/initial']);
+      this.router.navigate(['/inicial']);
     }, 2000);
   }
 }
