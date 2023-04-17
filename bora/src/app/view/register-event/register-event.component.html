@@ -1,0 +1,31 @@
+<div id="wrapper">
+    <div id="container">
+      <div class="header">
+        <img (click)="backBtn()" src="../../../assets/arrow left_.svg" alt="" />
+      </div>
+      <header>
+        <img class="logo__img" src="../../../assets/Bora.png" />
+      </header>
+      <div id="content"></div>
+    </div>
+  </div>
+  
+  <div>
+    <h1 class="title">Evento</h1>
+  </div>
+  <div class="input">
+    <form action="" class="form">
+      <label for="evento">Nome do evento</label>
+      <input type="text" name="evento" required />
+      <label for="descricao">Descrição</label>
+      <input type="text" name="descricao" required />
+      <label for="local">Local</label>
+      <input type="text" name="local" required/>
+      <label for="data">Data</label>
+      <input type="date" name="data" required/>
+    </form>
+  </div>
+  <footer class="btn">
+    <button (click)="goToFeed()" class="btn__entrar">Cadastrar</button>
+  </footer>
+  
