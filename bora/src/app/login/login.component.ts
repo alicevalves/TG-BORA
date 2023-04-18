@@ -38,6 +38,19 @@ export class LoginComponent {
     }
   }
 
+  postLogin() {
+    this.submitted = true;
+    if (this.form.valid) {
+      console.log('submit');
+      this.loginService.postLogin(this.form.value).subscribe(
+        (success) => alert('Login realizado com sucesso' + this.form.value),
+        (error) =>
+          alert('Erro ao realizar login :('),
+        () => console.log('request completo')
+      );
+    }
+  }
+
   backBtn(){
     this.router.navigate(['/inicial'])
   }
