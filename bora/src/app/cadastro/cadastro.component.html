@@ -14,17 +14,25 @@
 </div>
 <div class="input">
   <form action="" class="form" [formGroup]="form">
-    <label for="nome">Nome e Sobrenome</label>
+    <label for="nome"
+      >Nome e Sobrenome <span style="color: red; padding-left: 2px"> *</span>
+    </label>
     <input formControlName="nome" type="text" name="nome" required />
 
-    <label for="email">E-mail</label>
-    <input formControlName="email" type="email" name="email" required/>
+    <label for="email"
+      >E-mail <span style="color: red; padding-left: 2px"> *</span></label
+    >
+    <input formControlName="email" type="email" name="email" required />
 
-    <label for="link">LinkedIn</label>
-    <input formControlName="linkedin" type="text" name="linkedin" required/>
+    <label for="link"
+      >LinkedIn <span style="color: red; padding-left: 2px"> *</span></label
+    >
+    <input formControlName="linkedin" type="text" name="linkedin" required />
 
-    <label for="pass">Senha</label>
-    <input formControlName="senha" type="password" name="pass" required/>
+    <label for="pass"
+      >Senha <span style="color: red; padding-left: 2px"> *</span></label
+    >
+    <input formControlName="senha" type="password" name="pass" required />
 
     <footer class="btn">
       <button
@@ -32,7 +40,9 @@
         (click)="postUser()"
         type="submit"
         value="CONTINUAR"
-      >CONTINUAR</button>
+      >
+        CONTINUAR
+      </button>
     </footer>
   </form>
 </div>

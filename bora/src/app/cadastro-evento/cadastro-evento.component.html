@@ -16,10 +16,14 @@
 
 <div class="input">
   <form action="" class="form" [formGroup]="form">
-    <label for="evento">Nome do evento</label>
+    <label for="evento"
+      >Nome do evento <span style="color: red; padding-left: 2px"> *</span>
+    </label>
     <input formControlName="nomeEvento" type="text" name="evento" required />
 
-    <label for="descricao">Descrição</label>
+    <label for="descricao"
+      >Descrição <span style="color: red; padding-left: 2px"> *</span>
+    </label>
     <input
       formControlName="descricaoEvento"
       type="text"
@@ -27,10 +31,14 @@
       required
     />
 
-    <label for="local">Local</label>
+    <label for="local"
+      >Local <span style="color: red; padding-left: 2px"> *</span>
+    </label>
     <input formControlName="localEvento" type="text" name="local" required />
 
-    <label for="data">Data</label>
+    <label for="data"
+      >Data <span style="color: red; padding-left: 2px"> *</span>
+    </label>
     <input formControlName="dataEvento" type="date" name="data" required />
   </form>
 </div>
