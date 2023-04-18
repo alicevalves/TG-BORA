@@ -99,7 +99,7 @@ app.put('/alteraSenha', async (req, res) => {
         res.status(201).send({msg: "E-mail de redefinição de senha enviado!"});
     })
     .catch((error) => {
-        let errorMessage;
+        let errorMessage = mensagemerro;
         const mensagemerro = error.code;
         if (mensagemerro.includes("auth/invalid-email")) {
             errorMessage = "O formato do e-mail enviado está incorreto!"
