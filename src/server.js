@@ -119,7 +119,7 @@ app.get('/getusuarios', async (req, res) => {
 })
 
 app.get('/login', async (req, res) => {
-    const data = req.header;
+    const data = req.headers;
     const auth = firebase.auth();
     
     auth.signInWithEmailAndPassword(data.email, data.senha)
