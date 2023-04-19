@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { FeedComponent } from './feed/feed.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { LoadInicialComponent } from './load-inicial/load-inicial.component';
+import { BaseBoraComponent } from './shared/components/base-bora/base-bora.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoadInicialComponent } from './load-inicial/load-inicial.component';
     LoginComponent,
     FeedComponent,
     EditarPerfilComponent,
-    LoadInicialComponent
+    LoadInicialComponent,
+    BaseBoraComponent
   ],
   imports: [
     BrowserModule,
