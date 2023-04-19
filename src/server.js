@@ -134,6 +134,9 @@ app.get('/login', async (req, res) => {
         if (mensagemerro.includes("auth/wrong-password")) {
             errorMessage = "A senha é inválida ou o usuário não possui senha!";
         }
+        if (mensagemerro.includes("auth/user-not-found")) {
+            errorMessage = "Usuário não encontrado!";
+        }
         res.status(404).send({msg: errorMessage});
     });  
 })
