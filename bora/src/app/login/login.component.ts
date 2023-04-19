@@ -19,7 +19,7 @@ export class LoginComponent extends BaseBoraComponent {
   });
 
   submitted = false;
-  idusuario: any;
+  idUsuario: any;
 
   constructor(
     private router: Router,
@@ -52,11 +52,11 @@ export class LoginComponent extends BaseBoraComponent {
   postLogin() {
     this.loginService
       .getLogin(this.form.value)
-      .subscribe((dados) => (this.idusuario = dados));
+      .subscribe((dados) => (this.idUsuario = dados));
 
     setTimeout(() => {
-      console.log(this.idusuario);
-      this.boraStore.setIdUsuarioLogado(this.idusuario);
+      console.log(this.idUsuario);
+      this.boraStore.setIdUsuarioLogado(this.idUsuario);
       this.goToFeed()
     }, 1000);
   }

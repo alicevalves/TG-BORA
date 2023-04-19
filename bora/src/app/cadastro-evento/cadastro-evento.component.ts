@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CadastroEventoService } from './cadastro-evento.service';
+import { BoraStore } from '../store/bora.store';
+import { json } from 'body-parser';
 
 @Component({
   selector: 'app-cadastro-evento',
@@ -16,21 +18,36 @@ export class CadastroEventoComponent {
     dataEvento: new FormControl('', Validators.required),
   });
 
-  submitted = false;
+  idusuario: string
+  dadosEvento: any
 
   constructor(
     private router: Router,
-    private eventoService: CadastroEventoService
+    private eventoService: CadastroEventoService,
+    private store: BoraStore
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.store.getIdUsuario())
+  }
 
-  postUser() {
-    this.submitted = true;
-    console.log(this.form.value);
+  postEvento() {
+
+    // this.idusuario =   this.store.getIdUsuario()
+    this.dadosEvento = this.form.value
+    const teste = this.store.getIdUsuario()
+    const postEvento = {
+      nomeEvento: this.form.controls.nomeEvento.value,
+      descricaoEvento: this.form.controls.descricaoEvento.value,
+      localEvento: this.form.controls.localEvento.value,
+      dataEvento: this.form.controls.dataEvento.value,
+      idUsuario: this.store.getIdUsuario(),
+    } 
+
+    console.log(postEvento)
     if (this.form.valid) {
       console.log('submit');
-      this.eventoService.postEventos(this.form.value).subscribe(
+      this.eventoService.postEventos(postEvento).subscribe(
         (success) => alert('Evento cadastrado com sucesso!'),
         (error) =>
           alert('Erro ao cadastrar evento. Tente novamente mais tarde'),

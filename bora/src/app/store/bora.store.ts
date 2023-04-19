@@ -13,18 +13,19 @@ export class BoraStore {
     return this.boraStore$.asObservable();
   }
 
-  setIdUsuarioLogado(idusuario: string){
+  setIdUsuarioLogado(idUsuario: string){
     this.boraStore$.next({
       ...this.boraStore$.value,
-      login: {
-        ...this.boraStore$.value.login,
-        idusuario
+      usuario: {
+        ...this.boraStore$.value.usuario,
+        idUsuario
       }
     })
   }
 
   getIdUsuario(){
-    return this.boraStore$.getValue().login.idusuario
+    console.log(this.boraStore$.value.usuario.idUsuario)
+    return this.boraStore$.value.usuario.idUsuario.idUsuario
   }
 
   constructor() { }

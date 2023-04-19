@@ -1,9 +1,9 @@
 export class BoraState {
-    login: LoginState = {} as LoginState
+    usuario: Usuario;
 }
 
-export interface LoginState {
-  idusuario: string;
+export interface Usuario {
+  idUsuario: any;
 }
 
 export interface cadastro {
