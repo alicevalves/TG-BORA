@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { loginGet } from './login';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent {
   });
 
   submitted = false;
+  idusuario: any
 
   constructor(
     private router: Router,
@@ -39,15 +41,12 @@ export class LoginComponent {
   }
 
   postLogin() {
-    this.submitted = true;
     if (this.form.valid) {
       console.log('submit');
-      this.loginService.postLogin(this.form.value).subscribe(
-        (success) => alert('Login realizado com sucesso' + this.form.value),
-        (error) =>
-          alert('Erro ao realizar login :('),
-        () => console.log('request completo')
+     this.loginService.postLogin(this.form.value).subscribe(
+        dados =>  this.idusuario = dados,
       );
+
     }
   }
 

@@ -1,5 +1,5 @@
 export interface loginGet {
-    id: string
+    idusuario: string
 }
 
 export interface loginPost {

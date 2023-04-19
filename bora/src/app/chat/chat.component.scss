@@ -80,7 +80,7 @@
     }
   
     .input {
-      display: flex;
+      display: grid;
       bottom: 40px;
       position: fixed;
       width: 80%;
@@ -94,8 +94,8 @@
         margin: 24px 8% 0 5%;
       }
       img {
-        margin-bottom: 3px;
-      }
+        margin-bottom: -6px;
+        margin-right: 6px;      }
     }
   }
   
