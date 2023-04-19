@@ -125,7 +125,7 @@ app.get('/login', async (req, res) => {
     auth.signInWithEmailAndPassword(data.email, data.senha)
     .then((userCredential) => {
         const user = userCredential.user;
-        res.status(200).send({idusuario: user.uid});
+        res.status(200).send({idUsuario: user.uid});
     })
     .catch((error) => {
         let errorMessage;
