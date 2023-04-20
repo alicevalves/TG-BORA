@@ -34,6 +34,18 @@
     >
     <input formControlName="senha" type="password" name="pass" required />
 
+    <label for="pass"
+    >Foto de Perfil <span style="color: red; padding-left: 2px"> *</span></label
+  >
+    <input
+    formControlName="fotoPerfil"
+    type="file"
+    name="file"
+    required
+    class="foto"
+    (change)="onInputChanged($event)"
+  />
+
     <footer class="btn">
       <button
         class="btn__entrar"

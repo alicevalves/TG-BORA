@@ -11,7 +11,6 @@ import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.componen
 import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
 import { ChatComponent } from './chat/chat.component';
 import { ConversasComponent } from './conversas/conversas.component';
-import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
 import { LoginComponent } from './login/login.component';
 import { FeedComponent } from './feed/feed.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
@@ -26,21 +25,20 @@ import { BaseBoraComponent } from './shared/components/base-bora/base-bora.compo
     CadastroEventoComponent,
     ChatComponent,
     ConversasComponent,
-    CadastroFotoComponent,
     LoginComponent,
     FeedComponent,
     EditarPerfilComponent,
     LoadInicialComponent,
-    BaseBoraComponent
+    BaseBoraComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

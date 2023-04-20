@@ -5,7 +5,6 @@ import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.componen
 import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
 import { ChatComponent } from './chat/chat.component';
 import { ConversasComponent } from './conversas/conversas.component';
-import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
 import { LoginComponent } from './login/login.component';
 import { FeedComponent } from './feed/feed.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
@@ -19,9 +18,6 @@ const routes: Routes = [{
 },
 {
   path: 'login', component: LoginComponent ,
-},
-{
-  path: 'foto', component: CadastroFotoComponent ,
 },
 {
   path: 'evento', component: CadastroEventoComponent ,
