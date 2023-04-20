@@ -6,3 +6,11 @@ export interface FeedResponse {
     localEvento: string,
     idUsuario: string
 }
+
+export interface Usuario {
+    fotoPerfil: string;
+    linkedin: string;
+    email: string;
+    idUsuario: string;
+    nome: string;
+}

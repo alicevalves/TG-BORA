@@ -15,17 +15,15 @@ export class FeedComponent  {
 
   mostrarPerfil:boolean = false;
   eventos: any
-  idUsuario: any
+  dadoUsuario: any
 
   constructor(private router: Router, private feedService: FeedService, private store: BoraStore) {
   }
   
   ngOnInit(): void {
     this.feedService.getEventos().subscribe(dados => this.eventos = dados)
-    console.log(this.eventos)
-    //to pegando o id do usario por aqui
-    this.idUsuario = this.store.getIdUsuario()
-    console.log(this.idUsuario)
+    this.feedService.getUsuarioPeloId().subscribe(dados => this.dadoUsuario = dados)
+    console.log(this.dadoUsuario)
   }
 
   openModal(){
