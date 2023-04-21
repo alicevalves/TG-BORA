@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChatService } from './chat.service';
+import { BoraStore } from '../store/bora.store';
 
 @Component({
   selector: 'app-chat',
@@ -12,13 +13,22 @@ export class ChatComponent {
   form = new FormGroup({
     mensagem: new FormControl('', Validators.required),
   });
-  constructor(private router: Router, private chatService: ChatService) {}
+
+  dataHora: Date = new Date();
+
+  constructor(private router: Router, private chatService: ChatService, private store:BoraStore) {}
 
   ngOnInit(): void {
 
   }
 
   postMensagem(){
+  //  const  messageData = {
+  //     mensagem: this.form.controls.mensagem.value,
+  //     dataHoraEnvio: this.dataHora.toLocaleString(),
+  //     idUsuDestino: ,
+  //     idUsuario: this.store.getIdUsuario(),
+  //   }
     console.log(this.form.value)
     if (this.form.valid) {
       console.log('submit')

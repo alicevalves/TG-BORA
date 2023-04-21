@@ -53,12 +53,15 @@ export class LoginComponent extends BaseBoraComponent {
     this.loginService
       .getLogin(this.form.value)
       .subscribe((dados) => (this.idUsuario = dados));
+      setTimeout(() => {
+        this.boraStore.setIdUsuarioLogado(this.idUsuario);
+        if (this.idUsuario) {
+          this.goToFeed()
+        }else {
+          alert("Usuário ou senha incorreta")
+        }
+      }, 1000);
 
-    setTimeout(() => {
-      console.log(this.idUsuario);
-      this.boraStore.setIdUsuarioLogado(this.idUsuario);
-      this.goToFeed()
-    }, 1000);
   }
 
   backBtn() {

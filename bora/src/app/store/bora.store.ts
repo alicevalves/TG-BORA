@@ -34,7 +34,6 @@ export class BoraStore {
   }
 
   getIdUsuario(){
-    console.log(this.boraStore$.value.usuario.idUsuario)
     return this.boraStore$.value.usuario.idUsuario.idUsuario
   }
 
