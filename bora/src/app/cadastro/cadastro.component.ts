@@ -21,20 +21,18 @@ export class CadastroComponent {
     linkedin: new FormControl('', Validators.required),
     senha: new FormControl('', Validators.required),
     fotoPerfil: new FormControl('', Validators.required),
-
   });
 
-  submitted = false
-  base64: any
-  dadosUsuarios: Usuarios
+  submitted = false;
+  base64: any;
+  dadosUsuarios: Usuarios;
 
   constructor(
     private router: Router,
-    private cadastroService: CadastroService
+    private cadastroService: CadastroService,
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onInputChanged(event: any) {
     let targetEvent = event.target;
@@ -45,31 +43,28 @@ export class CadastroComponent {
       this.base64 = fileReader.result;
       console.log('the res ', this.base64);
     };
-
     fileReader.readAsDataURL(file);
   }
 
-  postUser(){
-     this.dadosUsuarios = {
+  postUser() {
+      this.dadosUsuarios = {
       nome: this.form.controls.nome.value,
       email: this.form.controls.email.value,
       linkedin: this.form.controls.linkedin.value,
       senha: this.form.controls.senha.value,
       fotoPerfil: this.base64,
+    };
+    if (this.form.valid) {
+      console.log('submit');
+      this.cadastroService.postUsuarios(this.dadosUsuarios).subscribe(
+        (success) => console.log('Sucesso'),
+        (error) => console.error(error),
+        () => console.log('request completo')
+      );
+      console.log(this.dadosUsuarios);
+      this.form.reset();
     }
-      if (this.form.valid) {
-        console.log('submit')
-        this.cadastroService.postUsuarios(this.dadosUsuarios).subscribe(
-          success => console.log("Sucesso"),
-          error => console.error(error),
-          () => console.log('request completo')
-        )
-        console.log(this.dadosUsuarios)
-
-      }
   }
-
-
 
   backBtn() {
     this.router.navigate(['/inicial']);
