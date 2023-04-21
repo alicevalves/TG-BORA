@@ -23,6 +23,16 @@ export class BoraStore {
     })
   }
 
+  setIdUsuarioEvento(idUsuario: string){
+    this.boraStore$.next({
+      ...this.boraStore$.value,
+      evento: {
+        ...this.boraStore$.value.evento,
+        idUsuario
+      }
+    })
+  }
+
   getIdUsuario(){
     console.log(this.boraStore$.value.usuario.idUsuario)
     return this.boraStore$.value.usuario.idUsuario.idUsuario

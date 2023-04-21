@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { CadastroService } from './cadastro.service';
 import { Usuarios } from './cadastro';
+import * as pako from 'pako';
 
 @Component({
   selector: 'app-cadastro',
@@ -47,6 +48,8 @@ export class CadastroComponent {
   }
 
   postUser() {
+    console.log(this.base64)
+
       this.dadosUsuarios = {
       nome: this.form.controls.nome.value,
       email: this.form.controls.email.value,

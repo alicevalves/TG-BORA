@@ -24,10 +24,11 @@ export class FeedService {
       tap(console.log)
     )
   }
-  getUsuarioPeloId(){
-    return this.http.get<Usuario[]>(`${this.APIUSUARIO}/5F0LeRvqmRZnEakxpK3SFiQLxZf2`)
-    .pipe(
-      tap(console.log)
-    )
-  }
+
+  // getUsuarioPeloId(){
+  //   return this.http.get<Usuario[]>(`${this.APIUSUARIO}/${this.eventoDado.idUsuario}`)
+  //   .pipe(
+  //     tap(console.log)
+  //   )
+  // }
 }

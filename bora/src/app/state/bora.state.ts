@@ -1,5 +1,6 @@
 export class BoraState {
     usuario: Usuario;
+    evento: evento
 }
 
 export interface Usuario {
@@ -19,7 +20,7 @@ export interface evento{
     nomeEvento: string
     localEvento: string
     dataEvento: string
-    idusuario: string
+    idUsuario: string
 }
 
 export interface mensagemEnviada {
