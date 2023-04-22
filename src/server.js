@@ -41,19 +41,19 @@ app.post('/setusuarios', async (req, res) => {
         // Signed in
         const user = userCredential.user;
         
-        if (data['fotoperfil']) {
-            const storageRef = firebase.storage().ref();
-            const imageRef = storageRef.child(`fotoPerfilUsuario/${user.uid}.jpg`);
-            const metadata = { contentType: "image/jpeg" };
-            imageRef.putString(data['fotoperfil'], "base64", metadata)
-            .catch((error) => {
-            console.error("Error uploading image", error);
-            });
-        }
+        // if (data['fotoperfil']) {
+        //     const storageRef = firebase.storage().ref();
+        //     const imageRef = storageRef.child(`fotoPerfilUsuario/${user.uid}.jpg`);
+        //     const metadata = { contentType: "image/jpeg" };
+        //     imageRef.putString(data['fotoperfil'], "base64", metadata)
+        //     .catch((error) => {
+        //     console.error("Error uploading image", error);
+        //     });
+        // }
 
         data['idUsuario'] = user.uid;
         delete(data['senha']);
-        delete(data['fotoperfil']);
+        // delete(data['fotoperfil']);
         await Usuario.add(data);
         res.status(201).send({msg: "Usuário criado com sucesso!"});
     })
