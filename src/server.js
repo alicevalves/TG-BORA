@@ -23,7 +23,10 @@ const Usuario = db.collection('usuarios');
 const Eventos = db.collection('eventos');
 const Mensagens = db.collection('mensagens');
 const app = express();
-app.use(express.json());
+// app.use(express.json());
+app.use(express.json({limit: '50mb', extended: true}));
+app.use(express.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(express.text({ limit: '200mb' }));
 app.use(cors());
 
 app.get('/', (req, res) => {
