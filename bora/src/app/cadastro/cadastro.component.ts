@@ -11,10 +11,17 @@ import { Usuarios } from './cadastro';
 })
 export class CadastroComponent {
   form = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    nome: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^[a-zA-Z\s]+$/),
+    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     linkedin: new FormControl('', Validators.required),
-    senha: new FormControl('', Validators.required),
+    senha: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(/^(?=.*[A-Z])(?=.*\d)/),
+    ]),
     fotoPerfil: new FormControl('', Validators.required),
   });
 

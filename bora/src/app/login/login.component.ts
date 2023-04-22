@@ -14,8 +14,12 @@ import { BaseBoraComponent } from '../shared/components/base-bora/base-bora.comp
 })
 export class LoginComponent extends BaseBoraComponent {
   form = new FormGroup({
-    email: new FormControl('', Validators.required),
-    senha: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    senha: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(/^(?=.*[A-Z])(?=.*\d)/),
+    ]),
   });
 
   submitted = false;
@@ -53,15 +57,14 @@ export class LoginComponent extends BaseBoraComponent {
     this.loginService
       .getLogin(this.form.value)
       .subscribe((dados) => (this.idUsuario = dados));
-      setTimeout(() => {
-        this.boraStore.setIdUsuarioLogado(this.idUsuario);
-        if (this.idUsuario) {
-          this.goToFeed()
-        }else {
-          alert("Usuário ou senha incorreta")
-        }
-      }, 1000);
-
+    setTimeout(() => {
+      this.boraStore.setIdUsuarioLogado(this.idUsuario);
+      if (this.idUsuario) {
+        this.goToFeed();
+      } else {
+        alert('Usuário ou senha incorreta');
+      }
+    }, 1000);
   }
 
   backBtn() {
