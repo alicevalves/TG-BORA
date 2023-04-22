@@ -22,9 +22,9 @@ const db = firebase.firestore();
 const Usuario = db.collection('usuarios');
 const Eventos = db.collection('eventos');
 const Mensagens = db.collection('mensagens');
-
+app.use(express.bodyParser({limit: '50mb'}));
 const app = express();
-
+app.use(express.bodyParser({limit: '50mb'}));
 app.use(express.json());
 app.use(cors());
 
@@ -35,13 +35,25 @@ app.get('/', (req, res) => {
 app.post('/setusuarios', async (req, res) => {
     const data = req.body;
     const auth = firebase.auth();
-    
+
     auth.createUserWithEmailAndPassword(data.email, data.senha)
     .then(async (userCredential) => {
         // Signed in
         const user = userCredential.user;
+        
+        if (data['fotoperfil']) {
+            const storageRef = firebase.storage().ref();
+            const imageRef = storageRef.child(`fotoPerfilUsuario/${user.uid}.jpg`);
+            const metadata = { contentType: "image/jpeg" };
+            imageRef.putString(data['fotoperfil'], "base64", metadata)
+            .catch((error) => {
+            console.error("Error uploading image", error);
+            });
+        }
+
         data['idUsuario'] = user.uid;
         delete(data['senha']);
+        delete(data['fotoperfil']);
         await Usuario.add(data);
         res.status(201).send({msg: "Usuário criado com sucesso!"});
     })
