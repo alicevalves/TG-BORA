@@ -22,9 +22,7 @@ const db = firebase.firestore();
 const Usuario = db.collection('usuarios');
 const Eventos = db.collection('eventos');
 const Mensagens = db.collection('mensagens');
-app.use(express.bodyParser({limit: '50mb'}));
 const app = express();
-app.use(express.bodyParser({limit: '50mb'}));
 app.use(express.json());
 app.use(cors());
 
