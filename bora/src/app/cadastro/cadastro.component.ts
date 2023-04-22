@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CadastroService } from './cadastro.service';
 import { Usuarios } from './cadastro';
-import * as pako from 'pako';
 
 @Component({
   selector: 'app-cadastro',
@@ -27,10 +21,11 @@ export class CadastroComponent {
   submitted = false;
   base64: any;
   dadosUsuarios: Usuarios;
+  idUsuario: any;
 
   constructor(
     private router: Router,
-    private cadastroService: CadastroService,
+    private cadastroService: CadastroService
   ) {}
 
   ngOnInit(): void {}
@@ -48,25 +43,24 @@ export class CadastroComponent {
   }
 
   postUser() {
-    console.log(this.base64)
-
-      this.dadosUsuarios = {
+    this.dadosUsuarios = {
       nome: this.form.controls.nome.value,
       email: this.form.controls.email.value,
       linkedin: this.form.controls.linkedin.value,
       senha: this.form.controls.senha.value,
       fotoPerfil: this.base64,
     };
+
     if (this.form.valid) {
-      console.log('submit');
       this.cadastroService.postUsuarios(this.dadosUsuarios).subscribe(
-        (success) => console.log('Sucesso'),
-        (error) => console.error(error),
-        () => console.log('request completo')
+        (success) => this.router.navigate(['/login']),
+        (error) => console.error(error)
       );
-      console.log(this.dadosUsuarios);
-      this.form.reset();
     }
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 
   backBtn() {
