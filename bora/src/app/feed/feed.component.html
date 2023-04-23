@@ -6,16 +6,16 @@
   <div class="evento" *ngFor="let evento of eventos; let i = index">
     <div class="nome">
       <img
-        (click)="openModal()"
+        (click)="setDadosDoUsuario(i)"
         class="img"
         src="../../../assets/2D61F2BA-8623-4081-8B70-A7A0951BE317_1_105_c.jpeg"
         alt=""
       />
-      <span> Laiane </span>
+      <span>  </span>
     </div>
     <div class="data">
       <img src="../../../assets/calendar_.svg" alt="" />
-      <span> {{ evento.dataEvento | date : 'dd/MM/yyyy' }} </span>
+      <span> {{ evento.dataEvento | date : "dd/MM/yyyy" }} </span>
     </div>
     <div class="local">
       <img src="../../../assets/globe_.svg" alt="" />
@@ -27,7 +27,9 @@
     <div class="descricao">
       <span> {{ evento.descricaoEvento }} </span>
     </div>
-    <div class="btn-bora"><button class="button"  (click)="onItemClick(i)">Bora?!</button></div>
+    <div class="btn-bora">
+      <button class="button" (click)="onItemClick(i)">Bora?!</button>
+    </div>
   </div>
 
   <footer>
@@ -50,24 +52,23 @@
 
   <div><h1 class="tit">Perfil</h1></div>
   <div class="content">
-    <img
-      class="foto"
-      src="../../../assets/2D61F2BA-8623-4081-8B70-A7A0951BE317_1_105_c.jpeg"
-      alt=""
-    />
-    <h1>Laiane</h1>
+    <img class="foto" [src]="fotoUser" alt="" />
+    <h1>{{ nomeUser }}</h1>
     <div class="links">
-      <img src="../../../assets/linkedin_.svg" alt="" />
-      <img src="../../../assets/envelope lines thin_.svg" alt="" />
+      <a [href]="linkedin"
+        ><img src="../../../assets/linkedin_.svg" alt=""
+      /></a>
+      <a [href]="email">
+        <img src="../../../assets/envelope lines thin_.svg" alt="" />
+      </a>
     </div>
   </div>
 </div>
 
-
 <nav class="sidebar" [class.open]="menuOpen">
   <ul>
-    <li><a (click)="goToFeed()" >Feed</a></li>
-    <li><a (click)="goToConversas()" >Conversas</a></li>
+    <li><a (click)="goToFeed()">Feed</a></li>
+    <li><a (click)="goToConversas()">Conversas</a></li>
     <li><a (click)="goToEdit()">Editar Perfil</a></li>
     <li><a href="#">Sair</a></li>
   </ul>

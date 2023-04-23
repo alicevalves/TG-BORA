@@ -8,75 +8,80 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  styleUrls: ['./feed.component.scss'],
 })
-export class FeedComponent  {
-
-  mostrarPerfil:boolean = false; 
+export class FeedComponent {
+  mostrarPerfil: boolean = false;
   eventos: any;
-  idUsuario: any
-  dadoUsuario: any
-  index: number
+  idUsuario: any;
+  dadoUsuario: any;
+  index: number;
   public menuOpen = false;
+  fotoUser: any;
+  nomeUser: any;
+  linkedin: any;
+  email: any;
 
+  constructor(
+    private router: Router,
+    private feedService: FeedService,
+    private boraStore: BoraStore
+  ) {}
 
-  constructor(private router: Router, private feedService: FeedService, private boraStore: BoraStore ) {
-  }
-  
   ngOnInit(): void {
-    console.log(this.boraStore.getIdUsuarioLogado())
-    this.feedService.getEventos().subscribe(dados => this.eventos = dados)
-    setTimeout(() => {
-      // const id = this.eventos[0].idUsuario  
-      // console.log(id)
-
-      // this.feedService.getDadosUsuarios('95mrLblYBkdDqaCRNDsz7PXK7IE3').subscribe(dados => this.dadoUsuario = dados)
-      // console.log(this.dadoUsuario)
-    }, 1000);
-  }
-
-  setDadosDoUsuario(index: number){
-    const id = this.eventos[index].idUsuario
-    console.log(id)
+    this.feedService.getEventos().subscribe((dados) => (this.eventos = dados));
   }
 
   public onItemClick(index: number): void {
     this.boraStore.setIdUsuarioEvento(this.eventos[index].idUsuario);
-    console.log(this.boraStore.getIdUsuarioEvento())  
+    console.log(this.boraStore.getIdUsuarioEvento());
     console.log(`Item ${index} clicado`);
-    // this.router.navigate(['/chat'])
-  }
-  
-  openModal(){
-    this.mostrarPerfil = true
+    this.router.navigate(['/chat']);
   }
 
-  closeModal(){
-    this.mostrarPerfil = false
+  setDadosDoUsuario(index: number) {
+    const id = this.eventos[index].idUsuario;
+    this.feedService
+      .getDadosUsuarios(id)
+      .subscribe((dados) => (this.dadoUsuario = dados));
+    setTimeout(() => {
+      this.nomeUser = this.dadoUsuario[0].nome;
+      this.linkedin = this.dadoUsuario[0].linkedin;
+      this.email = this.dadoUsuario[0].email;
+      this.fotoUser = this.dadoUsuario[0].fotoPerfil;
+      this.openModal();
+    }, 800);
+  }
+
+  openModal() {
+    this.mostrarPerfil = true;
+  }
+
+  closeModal() {
+    this.mostrarPerfil = false;
   }
 
   public toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
 
-  goToFeed(){
-    this.router.navigate(['/feed'])
+  goToFeed() {
+    this.router.navigate(['/feed']);
   }
 
-  goToEdit(){
-    this.router.navigate(['/perfil'])
+  goToEdit() {
+    this.router.navigate(['/perfil']);
   }
 
-  goToConversas(){
-    this.router.navigate(['/conversas'])
+  goToConversas() {
+    this.router.navigate(['/conversas']);
   }
 
-
-  goToRegisterEvent(){
-    this.router.navigate(['/evento'])
+  goToRegisterEvent() {
+    this.router.navigate(['/evento']);
   }
 
-  goToChat(){
-    this.router.navigate(['/chat'])
+  goToChat() {
+    this.router.navigate(['/chat']);
   }
 }
