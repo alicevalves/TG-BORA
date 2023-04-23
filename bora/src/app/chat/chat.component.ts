@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChatService } from './chat.service';
@@ -18,16 +18,43 @@ export class ChatComponent extends BaseBoraComponent {
   dataHora: Date = new Date();
   idUsuDestino: any;
   menuOpen = false;
+  mensagem: any;
+  messages: any[];
+  newMessage: string;
 
   constructor(
     private router: Router,
     private chatService: ChatService,
-    private store: BoraStore
+    private store: BoraStore,
+    private cd: ChangeDetectorRef 
   ) {
     super();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getMessages();
+
+    this.chatService
+      .getMessages()
+      .subscribe((dados) => (this.mensagem = dados));
+    setTimeout(() => {
+      console.log(this.mensagem);
+    }, 2000);
+  }
+
+  getMessages(): void {
+    this.chatService.getMessages()
+      .subscribe(messages => this.messages = messages);
+      this.cd
+  }
+
+  sendMessage(): void {
+    this.chatService.sendMessage(this.newMessage)
+      .subscribe(() => {
+        this.newMessage = '';
+        this.getMessages();
+      });
+  }
 
   postMensagem() {
     this.idUsuDestino = this.store.getIdUsuarioEvento();
@@ -37,14 +64,12 @@ export class ChatComponent extends BaseBoraComponent {
       idUsuDestino: this.idUsuDestino,
       idUsuario: this.store.getIdUsuarioLogado(),
     };
-    console.log(this.form.value);
     if (this.form.valid) {
-      console.log('submit');
-      this.chatService.postMensagem(this.form.value).subscribe(
-        (success) => alert('Mensagem Enviada' + this.form.value),
-        (error) => console.error(error),
-        () => console.log('request completo')
+      this.chatService.sendMessage(messageData).subscribe(
+        (success) => console.log('mensagem enviada'),
+        (error) => console.error(error)
       );
+      this.form.reset();
     }
   }
 

@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { FeedService } from './feed.service';
 import { BoraStore } from '../store/bora.store';
 import { FeedResponse } from './feed';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, tap } from 'rxjs';
 import { BaseBoraComponent } from '../shared/components/base-bora/base-bora.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-feed',
@@ -22,24 +23,47 @@ export class FeedComponent extends BaseBoraComponent {
   nomeUser: any;
   linkedin: any;
   email: any;
+  usuarios: any;
+  usuariosFoto: any;
+  perfiil: any;
+  private readonly APIUSUARIO =
+    'https://tg-bora-api.vercel.app/getusuariosbyid/';
 
   constructor(
     private router: Router,
     private feedService: FeedService,
-    private boraStore: BoraStore
+    private boraStore: BoraStore,
+    private http: HttpClient
   ) {
     super();
   }
 
   ngOnInit(): void {
-    this.feedService.getEventos().subscribe((dados) => (this.eventos = dados));
+    this.feedService.getEventos().subscribe((dados: any[]) => {
+      this.eventos = dados;
+    });
   }
 
-  public onItemClick(index: number): void {
+  onItemClick(index: number): void {
     this.boraStore.setIdUsuarioEvento(this.eventos[index].idUsuario);
     console.log(this.boraStore.getIdUsuarioEvento());
     console.log(`Item ${index} clicado`);
     this.router.navigate(['/chat']);
+  }
+
+  teste(index: number) {
+    const id = this.eventos[index].idUsuario;
+    this.feedService.getDadosUsuarios(id).subscribe((dados) => {
+      this.dadoUsuario = dados;
+      const i = index;
+      setTimeout(() => {
+        console.log(this.dadoUsuario[i].nome);
+        // this.perfiil = this.dadoUsuario[i].nome;
+        // this.linkedin = this.dadoUsuario[0].linkedin;
+        // this.email = this.dadoUsuario[0].email;
+        // this.fotoUser = this.dadoUsuario[0].fotoPerfil;
+      }, 1000);
+    });
   }
 
   setDadosDoUsuario(index: number) {
