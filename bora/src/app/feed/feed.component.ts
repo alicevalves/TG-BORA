@@ -23,6 +23,13 @@ export class FeedComponent  {
   
   ngOnInit(): void {
     this.feedService.getEventos().subscribe(dados => this.eventos = dados)
+    setTimeout(() => {
+      // const id = this.eventos[0].idUsuario  
+      // console.log(id)
+
+      this.feedService.getDadosUsuarios('95mrLblYBkdDqaCRNDsz7PXK7IE3').subscribe(dados => this.dadoUsuario = dados)
+      console.log(this.dadoUsuario)
+    }, 1000);
   }
 
   setDadosDoUsuario(index: number){
@@ -34,7 +41,7 @@ export class FeedComponent  {
     this.boraStore.setIdUsuarioEvento(this.eventos[index].idUsuario);
     console.log(this.boraStore.getIdUsuarioEvento())  
     console.log(`Item ${index} clicado`);
-    this.router.navigate(['/chat'])
+    // this.router.navigate(['/chat'])
   }
   
   openModal(){
