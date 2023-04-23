@@ -82,7 +82,9 @@ app.put('/putusuarios/:idusuario', async (req, res) => {
             id = doc.id;
         });
         const userRef = Usuario.doc(id);
-        await userRef.update(data)
+        delete(data['senha']);
+        delete(data['oldSenha']);
+        await userRef.update(data);
 
         res.status(201).send({msg: "Usuário alterado com sucesso!"});
     })
