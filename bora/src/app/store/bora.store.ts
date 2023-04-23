@@ -32,6 +32,9 @@ export class BoraStore {
       }
     })
   }
+  getIdUsuarioEvento(){
+    return this.boraStore$.value.evento.idUsuario
+  }
 
   getIdUsuario(){
     return this.boraStore$.value.usuario.idUsuario.idUsuario

@@ -3,7 +3,7 @@
     <h1>Feed</h1>
     <img src="../../../assets/menu_.svg" alt="" />
   </div>
-  <div class="evento" *ngFor="let evento of eventos">
+  <div class="evento" *ngFor="let evento of eventos; let i = index">
     <div class="nome">
       <img
         (click)="openModal()"
@@ -27,7 +27,7 @@
     <div class="descricao">
       <span> {{ evento.descricaoEvento }} </span>
     </div>
-    <div class="btn-bora"><button class="button">Bora?!</button></div>
+    <div class="btn-bora"><button class="button"  (click)="onItemClick(i)">Bora?!</button></div>
   </div>
 
   <footer>

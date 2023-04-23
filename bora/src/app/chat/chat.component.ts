@@ -15,6 +15,7 @@ export class ChatComponent {
   });
 
   dataHora: Date = new Date();
+  idUsuDestino: any;
 
   constructor(private router: Router, private chatService: ChatService, private store:BoraStore) {}
 
@@ -23,12 +24,13 @@ export class ChatComponent {
   }
 
   postMensagem(){
-  //  const  messageData = {
-  //     mensagem: this.form.controls.mensagem.value,
-  //     dataHoraEnvio: this.dataHora.toLocaleString(),
-  //     idUsuDestino: ,
-  //     idUsuario: this.store.getIdUsuario(),
-  //   }
+   this.idUsuDestino =  this.store.getIdUsuarioEvento()
+   const  messageData = {
+      mensagem: this.form.controls.mensagem.value,
+      dataHoraEnvio: this.dataHora.toLocaleString(),
+      idUsuDestino: this.idUsuDestino,
+      idUsuario: this.store.getIdUsuario(),
+    }
     console.log(this.form.value)
     if (this.form.valid) {
       console.log('submit')
