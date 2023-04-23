@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EditarPerfilService } from './editar-perfil.service';
+import { Router } from '@angular/router';
+import { BoraStore } from '../store/bora.store';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -8,8 +11,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class EditarPerfilComponent {
   form = new FormGroup({
-    nome: new FormControl('', [Validators.pattern(/^[a-zA-Z\s]+$/)]),
-    email: new FormControl('', [Validators.email]),
+    nome: new FormControl('', [Validators.pattern(/^[a-zA-Z\s]+$/), Validators.required]),
+    email: new FormControl('', [Validators.email, Validators.required]),
+    linkedin: new FormControl('', [Validators.required]),
     oldSenha: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
@@ -24,11 +28,49 @@ export class EditarPerfilComponent {
 
   menuOpen = false;
 
-  constructor() {}
+  constructor(private editarService: EditarPerfilService, private router: Router, private boraStore: BoraStore) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.boraStore.getIdUsuarioLogado())
+  }
+
+  putDadosUsuario(){
+    const dadosAlteradosUsuario = {
+      nome: this.form.controls.nome.value,
+      email: this.form.controls.email.value,
+      linkedin: this.form.controls.linkedin.value,
+      oldSenha: this.form.controls.oldSenha.value,
+      senha: this.form.controls.senha.value,
+    }
+
+    if (this.form.valid) {
+      this.editarService.putDadosUsuarios(dadosAlteradosUsuario).subscribe(
+        (success) => this.sucesso(),
+        (error) => alert("Erro ao atualizar dados")
+      );
+    }
+  }
+
+  sucesso(){
+    alert("Dados atualizados com sucesso")
+    this.router.navigate(['/feed'])
+    this.form.reset()
+  }
+
 
   public toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+  }
+
+  goToFeed(){
+    this.router.navigate(['/feed'])
+  }
+
+  goToEdit(){
+    this.router.navigate(['/perfil'])
+  }
+
+  goToConversas(){
+    this.router.navigate(['/conversas'])
   }
 }

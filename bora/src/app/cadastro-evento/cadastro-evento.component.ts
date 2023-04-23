@@ -18,8 +18,8 @@ export class CadastroEventoComponent {
     dataEvento: new FormControl('', Validators.required),
   });
 
-  idusuario: string
-  dadosEvento: any
+  idusuario: string;
+  dadosEvento: any;
 
   constructor(
     private router: Router,
@@ -28,23 +28,20 @@ export class CadastroEventoComponent {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.store.getIdUsuario())
+    console.log(this.store.getIdUsuarioLogado());
   }
 
   postEvento() {
-
-    // this.idusuario =   this.store.getIdUsuario()
-    this.dadosEvento = this.form.value
-    const teste = this.store.getIdUsuario()
+    this.dadosEvento = this.form.value;
+    const teste = this.store.getIdUsuarioLogado();
     const postEvento = {
       nomeEvento: this.form.controls.nomeEvento.value,
       descricaoEvento: this.form.controls.descricaoEvento.value,
       localEvento: this.form.controls.localEvento.value,
       dataEvento: this.form.controls.dataEvento.value,
-      idUsuario: this.store.getIdUsuario(),
-    } 
-
-    console.log(postEvento)
+      idUsuario: this.store.getIdUsuarioLogado(),
+    };
+    console.log(postEvento);
     if (this.form.valid) {
       console.log('submit');
       this.eventoService.postEventos(postEvento).subscribe(
@@ -54,7 +51,7 @@ export class CadastroEventoComponent {
         () => console.log('request completo')
       );
       setTimeout(() => {
-        this.router.navigate(['/feed']);        
+        this.router.navigate(['/feed']);
       }, 2000);
     }
   }

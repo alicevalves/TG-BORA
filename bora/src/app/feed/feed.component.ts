@@ -24,6 +24,7 @@ export class FeedComponent  {
   }
   
   ngOnInit(): void {
+    console.log(this.boraStore.getIdUsuarioLogado())
     this.feedService.getEventos().subscribe(dados => this.eventos = dados)
     setTimeout(() => {
       // const id = this.eventos[0].idUsuario  
@@ -57,6 +58,19 @@ export class FeedComponent  {
   public toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
+
+  goToFeed(){
+    this.router.navigate(['/feed'])
+  }
+
+  goToEdit(){
+    this.router.navigate(['/perfil'])
+  }
+
+  goToConversas(){
+    this.router.navigate(['/conversas'])
+  }
+
 
   goToRegisterEvent(){
     this.router.navigate(['/evento'])

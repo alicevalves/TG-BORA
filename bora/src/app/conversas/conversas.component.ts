@@ -16,12 +16,20 @@ export class ConversasComponent {
 
   }
 
+  goToChat(){
+    this.router.navigate(['/chat'])
+  }
+
   goToFeed(){
     this.router.navigate(['/feed'])
   }
 
-  goToChat(){
-    this.router.navigate(['/chat'])
+  goToEdit(){
+    this.router.navigate(['/perfil'])
+  }
+
+  goToConversas(){
+    this.router.navigate(['/conversas'])
   }
 
   public toggleMenu(): void {

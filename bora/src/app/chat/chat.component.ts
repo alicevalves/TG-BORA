@@ -30,7 +30,7 @@ export class ChatComponent {
       mensagem: this.form.controls.mensagem.value,
       dataHoraEnvio: this.dataHora.toLocaleString(),
       idUsuDestino: this.idUsuDestino,
-      idUsuario: this.store.getIdUsuario(),
+      idUsuario: this.store.getIdUsuarioLogado(),
     }
     console.log(this.form.value)
     if (this.form.valid) {
@@ -44,6 +44,18 @@ export class ChatComponent {
   }
 
   goToChats(){
+    this.router.navigate(['/conversas'])
+  }
+
+  goToFeed(){
+    this.router.navigate(['/feed'])
+  }
+
+  goToEdit(){
+    this.router.navigate(['/perfil'])
+  }
+
+  goToConversas(){
     this.router.navigate(['/conversas'])
   }
 

@@ -12,34 +12,37 @@
 </div>
 
 <div>
-  <h1 class="title">Perfil</h1>
+  <h1 class="title">Editar Perfil</h1>
 </div>
 <div class="input">
   <form action="" class="form" [formGroup]="form">
 
-    <label for="nome">Nome e Sobrenome</label>
+    <label for="nome">Nome e Sobrenome <span style="color: red; padding-left: 2px"> *</span></label>
     <input formControlName="nome" type="text" name="name" required />
 
-    <label for="nome">E-mail</label>
+    <label for="nome">E-mail <span style="color: red; padding-left: 2px"> *</span></label>
     <input formControlName="email"  type="email" name="email" required />
 
-    <label for="senhas">Senha atual</label>
+    <label for="nome">LinkedIn <span style="color: red; padding-left: 2px"> *</span></label>
+    <input formControlName="linkedin"  type="text" name="link" required />
+
+    <label for="senhas">Senha atual <span style="color: red; padding-left: 2px"> *</span></label>
     <input formControlName="oldSenha"  type="password" name="senha" required />
 
-    <label for="senhas">Senha nova</label>
+    <label for="senhas">Senha nova <span style="color: red; padding-left: 2px"> *</span></label>
     <input formControlName="senha"  type="password" name="senhanova" required />
 
   </form>
 </div>
 <footer class="btn">
-  <button class="btn__entrar">Salvar</button>
+  <button class="btn__entrar" (click)="putDadosUsuario()">Salvar</button>
 </footer>
 
 <nav class="sidebar" [class.open]="menuOpen">
   <ul>
-    <li><a href="/feed">Feed</a></li>
-    <li><a href="/conversas">Conversas</a></li>
-    <li><a href="/perfil">Editar Perfil</a></li>
+    <li><a (click)="goToFeed()" >Feed</a></li>
+    <li><a (click)="goToConversas()" >Conversas</a></li>
+    <li><a (click)="goToEdit()">Editar Perfil</a></li>
     <li><a href="#">Sair</a></li>
   </ul>
 </nav>

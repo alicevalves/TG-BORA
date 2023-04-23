@@ -36,7 +36,7 @@ export class BoraStore {
     return this.boraStore$.value.evento.idUsuario
   }
 
-  getIdUsuario(){
+  getIdUsuarioLogado(){
     return this.boraStore$.value.usuario.idUsuario.idUsuario
   }
 
