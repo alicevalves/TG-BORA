@@ -17,6 +17,8 @@ export class FeedComponent  {
   idUsuario: any
   dadoUsuario: any
   index: number
+  public menuOpen = false;
+
 
   constructor(private router: Router, private feedService: FeedService, private boraStore: BoraStore ) {
   }
@@ -27,8 +29,8 @@ export class FeedComponent  {
       // const id = this.eventos[0].idUsuario  
       // console.log(id)
 
-      this.feedService.getDadosUsuarios('95mrLblYBkdDqaCRNDsz7PXK7IE3').subscribe(dados => this.dadoUsuario = dados)
-      console.log(this.dadoUsuario)
+      // this.feedService.getDadosUsuarios('95mrLblYBkdDqaCRNDsz7PXK7IE3').subscribe(dados => this.dadoUsuario = dados)
+      // console.log(this.dadoUsuario)
     }, 1000);
   }
 
@@ -50,6 +52,10 @@ export class FeedComponent  {
 
   closeModal(){
     this.mostrarPerfil = false
+  }
+
+  public toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
   }
 
   goToRegisterEvent(){

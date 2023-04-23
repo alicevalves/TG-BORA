@@ -16,7 +16,8 @@ export class ChatComponent {
 
   dataHora: Date = new Date();
   idUsuDestino: any;
-
+  menuOpen = false
+  
   constructor(private router: Router, private chatService: ChatService, private store:BoraStore) {}
 
   ngOnInit(): void {
@@ -44,5 +45,9 @@ export class ChatComponent {
 
   goToChats(){
     this.router.navigate(['/conversas'])
+  }
+
+  public toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
   }
 }

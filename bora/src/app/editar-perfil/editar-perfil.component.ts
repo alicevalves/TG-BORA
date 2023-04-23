@@ -3,11 +3,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-editar-perfil',
   templateUrl: './editar-perfil.component.html',
-  styleUrls: ['./editar-perfil.component.scss']
+  styleUrls: ['./editar-perfil.component.scss'],
 })
 export class EditarPerfilComponent {
-  constructor() { }
+  
+  menuOpen = false;
 
-  ngOnInit():void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  public toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
   }
 }

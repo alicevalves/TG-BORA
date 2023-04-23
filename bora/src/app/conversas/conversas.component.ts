@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./conversas.component.scss']
 })
 export class ConversasComponent {
+
+  menuOpen = false
+  
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -19,5 +22,9 @@ export class ConversasComponent {
 
   goToChat(){
     this.router.navigate(['/chat'])
+  }
+
+  public toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
   }
 }
