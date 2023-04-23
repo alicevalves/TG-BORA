@@ -1,38 +1,43 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BaseBoraComponent } from '../shared/components/base-bora/base-bora.component';
 
 @Component({
   selector: 'app-conversas',
   templateUrl: './conversas.component.html',
-  styleUrls: ['./conversas.component.scss']
+  styleUrls: ['./conversas.component.scss'],
 })
-export class ConversasComponent {
+export class ConversasComponent extends BaseBoraComponent {
+  menuOpen = false;
 
-  menuOpen = false
-  
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
-
+  constructor(private router: Router) {
+    super();
   }
 
-  goToChat(){
-    this.router.navigate(['/chat'])
+  ngOnInit(): void {}
+
+  goToChat() {
+    this.router.navigate(['/chat']);
   }
 
-  goToFeed(){
-    this.router.navigate(['/feed'])
+  goToFeed() {
+    this.router.navigate(['/feed']);
   }
 
-  goToEdit(){
-    this.router.navigate(['/perfil'])
+  goToEdit() {
+    this.router.navigate(['/perfil']);
   }
 
-  goToConversas(){
-    this.router.navigate(['/conversas'])
+  goToConversas() {
+    this.router.navigate(['/conversas']);
   }
 
   public toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+  }
+
+  exit() {
+    this.router.navigate(['/']);
+    this.onDestroy;
   }
 }

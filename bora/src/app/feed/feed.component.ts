@@ -4,13 +4,14 @@ import { FeedService } from './feed.service';
 import { BoraStore } from '../store/bora.store';
 import { FeedResponse } from './feed';
 import { Observable } from 'rxjs';
+import { BaseBoraComponent } from '../shared/components/base-bora/base-bora.component';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
-export class FeedComponent {
+export class FeedComponent extends BaseBoraComponent {
   mostrarPerfil: boolean = false;
   eventos: any;
   idUsuario: any;
@@ -26,7 +27,9 @@ export class FeedComponent {
     private router: Router,
     private feedService: FeedService,
     private boraStore: BoraStore
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.feedService.getEventos().subscribe((dados) => (this.eventos = dados));
@@ -83,5 +86,10 @@ export class FeedComponent {
 
   goToChat() {
     this.router.navigate(['/chat']);
+  }
+
+  exit() {
+    this.router.navigate(['/']);
+    this.onDestroy;
   }
 }

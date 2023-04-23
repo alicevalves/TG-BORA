@@ -3,63 +3,73 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChatService } from './chat.service';
 import { BoraStore } from '../store/bora.store';
+import { BaseBoraComponent } from '../shared/components/base-bora/base-bora.component';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+  styleUrls: ['./chat.component.scss'],
 })
-export class ChatComponent {
+export class ChatComponent extends BaseBoraComponent {
   form = new FormGroup({
     mensagem: new FormControl('', Validators.required),
   });
 
   dataHora: Date = new Date();
   idUsuDestino: any;
-  menuOpen = false
-  
-  constructor(private router: Router, private chatService: ChatService, private store:BoraStore) {}
+  menuOpen = false;
 
-  ngOnInit(): void {
-
+  constructor(
+    private router: Router,
+    private chatService: ChatService,
+    private store: BoraStore
+  ) {
+    super();
   }
 
-  postMensagem(){
-   this.idUsuDestino =  this.store.getIdUsuarioEvento()
-   const  messageData = {
+  ngOnInit(): void {}
+
+  postMensagem() {
+    this.idUsuDestino = this.store.getIdUsuarioEvento();
+    const messageData = {
       mensagem: this.form.controls.mensagem.value,
       dataHoraEnvio: this.dataHora.toLocaleString(),
       idUsuDestino: this.idUsuDestino,
       idUsuario: this.store.getIdUsuarioLogado(),
-    }
-    console.log(this.form.value)
+    };
+    console.log(this.form.value);
     if (this.form.valid) {
-      console.log('submit')
+      console.log('submit');
       this.chatService.postMensagem(this.form.value).subscribe(
-        success => alert("Mensagem Enviada" + this.form.value),
-        error => console.error(error),
+        (success) => alert('Mensagem Enviada' + this.form.value),
+        (error) => console.error(error),
         () => console.log('request completo')
-      )
+      );
     }
   }
 
-  goToChats(){
-    this.router.navigate(['/conversas'])
+  goToChats() {
+    this.router.navigate(['/conversas']);
   }
 
-  goToFeed(){
-    this.router.navigate(['/feed'])
+  goToFeed() {
+    this.router.navigate(['/feed']);
   }
 
-  goToEdit(){
-    this.router.navigate(['/perfil'])
+  goToEdit() {
+    this.router.navigate(['/perfil']);
   }
 
-  goToConversas(){
-    this.router.navigate(['/conversas'])
+  goToConversas() {
+    this.router.navigate(['/conversas']);
   }
 
   public toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+  }
+
+  exit() {
+    this.router.navigate(['/']);
+    this.onDestroy;
   }
 }
