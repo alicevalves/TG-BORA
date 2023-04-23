@@ -159,17 +159,17 @@ app.get('/getusuariosbyId/:idusuario', async (req, res) => {
         myArray.push(doc.data());
     });
 
-    const storageRef = firebase.storage().ref();
-    const imageRef = storageRef.child(`fotoPerfilUsuario/${idusuario}.jpg`);
+    // const storageRef = firebase.storage().ref();
+    // const imageRef = storageRef.child(`fotoPerfilUsuario/${idusuario}.jpg`);
     
-    imageRef.getDownloadURL().then((url) => {
-      const img = document.createElement("img");
-      img.src = url;
-      const image = document.body.appendChild(img);
-      console.log(image);
-    }).catch((error) => {
-      console.error("Error loading image", error);
-    });
+    // imageRef.getDownloadURL().then((url) => {
+    //   const img = document.createElement("img");
+    //   img.src = url;
+    //   const image = document.body.appendChild(img);
+    //   console.log(image);
+    // }).catch((error) => {
+    //   console.error("Error loading image", error);
+    // });
 
     res.status(200).send(myArray);
 })
