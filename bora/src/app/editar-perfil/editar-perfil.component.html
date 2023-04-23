@@ -15,13 +15,20 @@
   <h1 class="title">Perfil</h1>
 </div>
 <div class="input">
-  <form action="" class="form">
+  <form action="" class="form" [formGroup]="form">
+
     <label for="nome">Nome e Sobrenome</label>
-    <input type="text" name="name" required />
-    <label for="senhas">Senha</label>
-    <input type="password" name="email" required />
-    <label for="link">LinkedIn</label>
-    <input type="text" name="link" required />
+    <input formControlName="nome" type="text" name="name" required />
+
+    <label for="nome">E-mail</label>
+    <input formControlName="email"  type="email" name="email" required />
+
+    <label for="senhas">Senha atual</label>
+    <input formControlName="oldSenha"  type="password" name="senha" required />
+
+    <label for="senhas">Senha nova</label>
+    <input formControlName="senha"  type="password" name="senhanova" required />
+
   </form>
 </div>
 <footer class="btn">
