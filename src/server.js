@@ -22,10 +22,11 @@ const db = firebase.firestore();
 const Usuario = db.collection('usuarios');
 const Eventos = db.collection('eventos');
 const Mensagens = db.collection('mensagens');
-
 const app = express();
-
-app.use(express.json());
+// app.use(express.json());
+app.use(express.json({limit: '50mb', extended: true}));
+app.use(express.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(express.text({ limit: '200mb' }));
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -35,13 +36,16 @@ app.get('/', (req, res) => {
 app.post('/setusuarios', async (req, res) => {
     const data = req.body;
     const auth = firebase.auth();
-    
+
     auth.createUserWithEmailAndPassword(data.email, data.senha)
     .then(async (userCredential) => {
         // Signed in
         const user = userCredential.user;
+        
+
         data['idUsuario'] = user.uid;
         delete(data['senha']);
+        // delete(data['fotoperfil']);
         await Usuario.add(data);
         res.status(201).send({msg: "Usuário criado com sucesso!"});
     })
@@ -66,6 +70,7 @@ app.put('/putusuarios/:idusuario', async (req, res) => {
     auth.currentUser.updatePassword(data.senha)
     .then(async (userCredential) => {
         // Signed in
+        
         const snapshot = await Usuario.where('idUsuario', '==', idusuario).get();
         if (snapshot.empty) {
             res.status(404).send({msg: "Usuário não localizado!"});
@@ -77,7 +82,9 @@ app.put('/putusuarios/:idusuario', async (req, res) => {
             id = doc.id;
         });
         const userRef = Usuario.doc(id);
-        await userRef.update(data)
+        delete(data['senha']);
+        delete(data['oldSenha']);
+        await userRef.update(data);
 
         res.status(201).send({msg: "Usuário alterado com sucesso!"});
     })
@@ -119,13 +126,13 @@ app.get('/getusuarios', async (req, res) => {
 })
 
 app.get('/login', async (req, res) => {
-    const data = req.header;
+    const data = req.headers;
     const auth = firebase.auth();
     
     auth.signInWithEmailAndPassword(data.email, data.senha)
     .then((userCredential) => {
         const user = userCredential.user;
-        res.status(200).send({idusuario: user.uid});
+        res.status(200).send({idUsuario: user.uid});
     })
     .catch((error) => {
         let errorMessage;
@@ -133,6 +140,9 @@ app.get('/login', async (req, res) => {
         
         if (mensagemerro.includes("auth/wrong-password")) {
             errorMessage = "A senha é inválida ou o usuário não possui senha!";
+        }
+        if (mensagemerro.includes("auth/user-not-found")) {
+            errorMessage = "Usuário não encontrado!";
         }
         res.status(404).send({msg: errorMessage});
     });  
@@ -150,6 +160,19 @@ app.get('/getusuariosbyId/:idusuario', async (req, res) => {
     snapshot.forEach(doc => {
         myArray.push(doc.data());
     });
+
+    // const storageRef = firebase.storage().ref();
+    // const imageRef = storageRef.child(`fotoPerfilUsuario/${idusuario}.jpg`);
+    
+    // imageRef.getDownloadURL().then((url) => {
+    //   const img = document.createElement("img");
+    //   img.src = url;
+    //   const image = document.body.appendChild(img);
+    //   console.log(image);
+    // }).catch((error) => {
+    //   console.error("Error loading image", error);
+    // });
+
     res.status(200).send(myArray);
 })
 
