@@ -3,14 +3,15 @@
     <h1>Feed</h1>
     <img src="../../../assets/menu_.svg" alt="" (click)="toggleMenu()" />
   </div>
-  <div class="evento" *ngFor="let evento of eventos; let i = index" >
-    <div>
+  <div class="evento" *ngFor="let evento of eventos; let i = index"  >
+    <div class="nome" >
       <img
         (click)="setDadosDoUsuario(i)"
         class="img"
-        src="../../assets/linkedin_.svg"
+        src="{{ usuarios[i].fotoPerfil }}"
+        alt=""
       />
-      <span > Usuario </span>
+      <span> {{ usuarios[i].nome }} </span>
     </div>
     <div class="data">
       <img src="../../../assets/calendar_.svg" alt="" />

@@ -6,6 +6,7 @@ import { FeedResponse } from './feed';
 import { Observable, forkJoin, tap } from 'rxjs';
 import { BaseBoraComponent } from '../shared/components/base-bora/base-bora.component';
 import { HttpClient } from '@angular/common/http';
+import { Usuario } from '../state/bora.state';
 
 @Component({
   selector: 'app-feed',
@@ -13,9 +14,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./feed.component.scss'],
 })
 export class FeedComponent extends BaseBoraComponent {
+
+  
   mostrarPerfil: boolean = false;
-  eventos: any;
-  idUsuario: any;
+  eventos: FeedResponse [] = [];
+  usuarios: any[] = [];
   dadoUsuario: any;
   index: number;
   public menuOpen = false;
@@ -23,11 +26,11 @@ export class FeedComponent extends BaseBoraComponent {
   nomeUser: any;
   linkedin: any;
   email: any;
-  usuarios: any;
+  // usuarios: any;
   usuariosFoto: any;
   perfiil: any;
   private readonly APIUSUARIO =
-    'https://tg-bora-api.vercel.app/getusuariosbyid/';
+    'https://tg-bora-api.vercel.app/getusuariosbyId/';
 
   constructor(
     private router: Router,
@@ -38,32 +41,33 @@ export class FeedComponent extends BaseBoraComponent {
     super();
   }
 
-  ngOnInit(): void {
+  ngOnInit(index: number): void {
     this.feedService.getEventos().subscribe((dados: any[]) => {
       this.eventos = dados;
     });
+
+
+
+
+    this.feedService.getEventos().subscribe(publicacoes => {
+      this.eventos = publicacoes;
+      setTimeout(() => {
+        for(let i = 0; i < publicacoes.length; i++) {
+          const idUsuario = publicacoes[i].idUsuario;
+          this.feedService.getDadosUsuarios(idUsuario).subscribe(usuario => {
+            this.usuarios[i] = usuario[0];
+          });
+        }
+      }, 1000);
+    });
   }
+  
 
   onItemClick(index: number): void {
     this.boraStore.setIdUsuarioEvento(this.eventos[index].idUsuario);
     console.log(this.boraStore.getIdUsuarioEvento());
     console.log(`Item ${index} clicado`);
     this.router.navigate(['/chat']);
-  }
-
-  teste(index: number) {
-    const id = this.eventos[index].idUsuario;
-    this.feedService.getDadosUsuarios(id).subscribe((dados) => {
-      this.dadoUsuario = dados;
-      const i = index;
-      setTimeout(() => {
-        console.log(this.dadoUsuario[i].nome);
-        // this.perfiil = this.dadoUsuario[i].nome;
-        // this.linkedin = this.dadoUsuario[0].linkedin;
-        // this.email = this.dadoUsuario[0].email;
-        // this.fotoUser = this.dadoUsuario[0].fotoPerfil;
-      }, 1000);
-    });
   }
 
   setDadosDoUsuario(index: number) {

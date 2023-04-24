@@ -1,16 +1,16 @@
 export interface FeedResponse {
-    id: string,
     dataEvento: string,
-    nomeEvento: string,
     descricaoEvento: string,
-    localEvento: string,
+    id: string,
     idUsuario: string
+    localEvento: string,
+    nomeEvento: string,
 }
 
 export interface Usuario {
-    fotoPerfil: string;
-    linkedin: string;
     email: string;
+    fotoPerfil: string;
     idUsuario: string;
+    linkedin: string;
     nome: string;
 }
