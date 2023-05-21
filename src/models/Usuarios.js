@@ -7,7 +7,8 @@ class Usuarios {
   static async setusuarios(data) {
     const auth = firebase.auth();
 
-    auth
+    let errorMessage = '';
+    await auth
       .createUserWithEmailAndPassword(data.email, data.senha)
       .then(async (userCredential) => {
         // Signed in
@@ -18,8 +19,8 @@ class Usuarios {
         return 'OK';
       })
       .catch((error) => {
-        let errorMessage;
         const mensagemerro = error.message;
+        errorMessage = mensagemerro;
         if (mensagemerro.includes("The email address is already")) {
           errorMessage = "Esse e-mail já está sendo utilizado em outra conta!";
         }
@@ -28,11 +29,14 @@ class Usuarios {
         }
         return errorMessage;
       });
+      return errorMessage || "OK"
   }
 
   
   static async putusuarios(data, idusuario) {
     const auth = firebase.auth();
+    
+    let errorMessage;
     await auth.signInWithEmailAndPassword(data.email, data.oldSenha);
     auth.currentUser.updatePassword(data.senha)
     .then(async () => {
@@ -55,24 +59,25 @@ class Usuarios {
         return "OK";
     })
     .catch((error) => {
-        let errorMessage;
         const mensagemerro = error.code;
         if (mensagemerro.includes("auth/weak-password")) {
             errorMessage = "A senha deve ter pelo menos 6 caracteres!"
         }
         return errorMessage;
     });
+    return errorMessage || "OK"
   }
 
   
   static async alteraSenha(data) {
       const auth = firebase.auth();
+      
+      let errorMessage;
       auth.sendPasswordResetEmail(data.email)
       .then(() => {
           return "OK";
       })
       .catch((error) => {
-          let errorMessage = error.code;
           const mensagemerro = error.code;
           if (mensagemerro.includes("auth/invalid-email")) {
               errorMessage = "O formato do e-mail enviado está incorreto!"
@@ -82,6 +87,7 @@ class Usuarios {
           }
           return errorMessage;
       });
+      return errorMessage || "OK"
   }
 
   static async getusuarios() {
@@ -94,13 +100,13 @@ class Usuarios {
   static async login(data) {
     const auth = firebase.auth();
     
+    let errorMessage;
     auth.signInWithEmailAndPassword(data.email, data.senha)
     .then((userCredential) => {
         const user = userCredential.user;
         return {idUsuario: user.uid};
     })
     .catch((error) => {
-        let errorMessage;
         const mensagemerro = error.code;
         
         if (mensagemerro.includes("auth/wrong-password")) {
@@ -111,6 +117,7 @@ class Usuarios {
         }
         return {msg: errorMessage};
     });
+    return errorMessage || "OK"
   }
 
   static async getusuariosbyId(idusuario) {

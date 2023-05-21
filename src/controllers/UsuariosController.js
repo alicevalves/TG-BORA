@@ -13,6 +13,7 @@ class UsuariosController {
         if (resp == 'OK') {
             return res.status(201).send({msg: "Usuário criado com sucesso!"});
         } else{
+            console.log(resp)
             return res.status(401).send({msg: resp});
         }
     }
