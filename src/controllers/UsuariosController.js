@@ -50,6 +50,7 @@ class UsuariosController {
         if (resp.msg) {
             return res.status(401).send({msg: resp.msg});
         } else{
+            console.log(resp)
             return res.status(200).send({idUsuario: resp.idUsuario});
         }
     }

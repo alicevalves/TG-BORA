@@ -99,12 +99,12 @@ class Usuarios {
 
   static async login(data) {
     const auth = firebase.auth();
-    
     let errorMessage;
-    auth.signInWithEmailAndPassword(data.email, data.senha)
+    let id;
+    await auth.signInWithEmailAndPassword(data.email, data.senha)
     .then((userCredential) => {
         const user = userCredential.user;
-        return {idUsuario: user.uid};
+        id = {idUsuario: user.uid};
     })
     .catch((error) => {
         const mensagemerro = error.code;
@@ -117,7 +117,7 @@ class Usuarios {
         }
         return {msg: errorMessage};
     });
-    return errorMessage || "OK"
+    return errorMessage || id
   }
 
   static async getusuariosbyId(idusuario) {
