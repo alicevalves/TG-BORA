@@ -19,7 +19,7 @@ app.post('/setusuarios', UsuariosController.setusuarios);
 app.put('/putusuarios/:idusuario', UsuariosController.putusuarios);
 app.put('/alteraSenha', UsuariosController.alteraSenha);
 app.get('/getusuarios', UsuariosController.getusuarios);
-app.get('/login', UsuariosController.login);
+app.post('/login', UsuariosController.login);
 app.get('/getusuariosbyId/:idusuario', UsuariosController.getusuariosbyId);
 
 // Eventos
